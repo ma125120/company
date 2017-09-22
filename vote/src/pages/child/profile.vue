@@ -40,11 +40,12 @@
             <img :src="v.pr_pic" alt="" />
           </div>
           <div class="right">
-            <p class="top">{{v.openid}},给TA送了1份{{v.pr_name}}</p>
+            <p class="top">{{v.openid}},给TA送了1{{v.unit}}{{v.pr_name}}</p>
             <p class="bot">{{v.time}}</p>
           </div>
       </div>
     </div>
+    <div class='more' @click='loadMore'>查看更多</div>
 
     <footer class='flex'>
       <router-link to='/' tag='div' class="l" replace><img :src="'./static/imgs/svg/back.svg'" alt='回首页' /><span>回首页</span></router-link>
@@ -60,6 +61,8 @@ export default {
   data () {
     return {
       given:[],
+      start:0,
+      pageSize:20,
       gift_num:0,
       info:{
         "id":1,
@@ -104,14 +107,27 @@ export default {
       .then(res=>{
         let state=res.data.state;
         if(state==0) {
-          alert('投票成功');
+          t.$weui.alert('投票成功');
           window.location.reload(true);
         } else {
-          alert('投票失败')
+          t.$weui.alert('投票失败')
         }
       });
       return false;
     },
+    loadMore() {
+      var t=this,
+          {start,pageSize,given}=t;
+      start=start+pageSize;
+      this.$http.get(`${t.$URL}/pre/getpreListById.htm?user_number=${num_id}&start=${t.start}&pageSize=${t.pageSize}`)
+      .then(res=>{
+        let state=res.data.state;
+        if(state==0) {
+          let givens=res.data.data.presentList;
+          t.given=given.concat(givens);
+        }
+      });
+    }
   },
   created() {
     var t=this,
@@ -122,12 +138,14 @@ export default {
     .then(res=>{
       let state=res.data.state;
       if(state==0) {
-        let info=res.data.data.userInfo[0];
+        let info=res.data.data.userInfo[0],
+        gift_num=res.data.data.userInfo[1].userPreTotal;
         t.info=info;
+        t.gift_num=gift_num;
       }
     });
     /*获取礼物列表*/
-    this.$http.get(`${t.$URL}/pre/getpreListById.htm?user_number=${num_id}`)
+    this.$http.get(`${t.$URL}/pre/getpreListById.htm?user_number=${num_id}&start=${t.start}&pageSize=${t.pageSize}`)
     .then(res=>{
       let state=res.data.state;
       if(state==0) {
@@ -136,14 +154,6 @@ export default {
       }
     });
     /*获取礼物数量*/
-    this.$http.get(`${t.$URL}/main/getuserPre.htm?number=${num_id}`)
-    .then(res=>{
-      let state=res.data.state;
-      if(state==0) {
-        let gift_num=res.data.data.userPreTotal;
-        t.gift_num=gift_num;
-      }
-    });
   }
 }
 </script>

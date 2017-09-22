@@ -1,0 +1,11 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="main">
+
+	</view>
+	<wiew class="modal">
+			<view class="title">您还未注册，是否立即注册？</view>
+			<navigator open-type="redirect" url='../signin/signin?to={{to}}' class="btn1">前往注册</navigator>
+			<view class="btn2" bindtap='back'>我再想想</view>
+	</wiew>
+</scroll-view>
+

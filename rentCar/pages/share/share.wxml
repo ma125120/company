@@ -1,0 +1,8 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="title">点击下方小程序二维码，转发给朋友</view>
+	<image src="{{img}}" class='erweima' bindtap='preview'></image>
+	<button open-type='share' class='share'>点击一键转发小程序</button>
+	<view>点击<text bindtap='preview' class='text'>【这里】</text>可获取可打印的大尺寸二维码</view>
+	<view class='final'><image class="svg" src="../../images/share/dui.svg"></image>衷心感谢您的分享</view>
+</scroll-view>
+

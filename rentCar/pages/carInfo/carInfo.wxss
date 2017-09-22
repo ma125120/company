@@ -1,0 +1,102 @@
+scroll-view {
+	
+}
+image {
+	width:100%;
+}
+.gray {
+	color:#666;
+}
+.main {
+	width:100%;
+	min-height: 100%;
+	background: #F2F2F2;
+	font-size:32rpx;
+}
+
+.body,
+swiper {
+	width:90%;
+	margin:0 auto;
+	background: #fff;
+}
+swiper {
+	border-top-left-radius: 10rpx;
+	border-top-right-radius: 10rpx;
+}
+.body {
+	border-bottom-left-radius: 10rpx;
+	border-bottom-right-radius: 10rpx;
+}
+swiper {
+	margin-top:30rpx;
+}
+swiper image {
+	height:274rpx;
+}
+.title {
+	line-height: 80rpx;
+}
+.rent-title {
+	margin:32rpx 0 42rpx 0;
+}
+.info {
+	font-size:28rpx;
+	text-align: left;
+	padding-left:36rpx;
+	padding-bottom:36rpx;
+}
+.info .w {
+	margin-bottom: 48rpx;
+}
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+.flex .item {
+	width:300rpx;
+}
+.content {
+	padding-left:16rpx;
+}
+/*.tel {
+	width:360rpx;
+}
+.item1,
+.tel1 {
+	flex:1;
+}
+.tel1  image {
+	width:36rpx;
+	height:36rpx;
+	vertical-align: middle;
+}
+.tel1 .content {
+	font-size:36rpx;
+	vertical-align: middle;
+	color:#26AAF5;
+}*/
+.tel-view {
+	width:100%;
+	height: 48px;
+	background: #fff;
+	line-height: 48px;
+	display: flex;
+}
+.tel-view image {
+	width:30px;
+	height:30px;
+	padding:0 10px;
+}
+.tel-view .r {
+	position: absolute;
+	right:0;
+	width:125px;
+	line-height: 48px;
+	background: #0099FF;
+	text-align: center;
+	font-size:18px;
+}
+.beizhu {
+	font-size:12px;
+}

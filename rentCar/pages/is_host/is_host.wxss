@@ -1,0 +1,38 @@
+.s_img {
+	height:330rpx;
+}
+image {
+	width:100%;
+}
+
+.content {
+	margin:0 60rpx;
+}
+.body {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin:84rpx 0 40rpx 0;
+}
+.item {
+	width:264rpx;
+	height:160rpx;
+	line-height: 160rpx;
+	background: #0066FF;
+	color:#fff;
+	border-radius: 20rpx;
+}
+.odd {
+	margin:0 100rpx 40rpx 0;
+}
+
+.footer {
+	font-size:24rpx;
+	text-align: left;
+}
+.notice {
+	padding:4rpx 0
+}
+.my-item {
+	padding:2px 0;
+}

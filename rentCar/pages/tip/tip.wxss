@@ -1,0 +1,42 @@
+scroll-view {
+	min-height: 100%;
+}
+.main {
+	width:100%;
+	min-height:1200rpx;
+	background: #E8EBED;
+	font-size:32rpx;
+}
+.modal {
+	position: absolute;
+	top:345rpx;
+	left:90rpx;
+	z-index:100;
+	width:580rpx;
+	height: 350rpx;
+	background: #fff;
+	border-radius: 20rpx;
+	padding-bottom:64rpx;
+	margin:0;
+}
+.title {
+	margin:64rpx 0;
+	font-size:36rpx;
+}
+.btn1,
+.btn2 {
+	text-align: center;
+	width:450rpx;
+	line-height: 64rpx;
+	border-radius: 40rpx;
+	margin:48rpx auto;
+	margin-top: 0; 
+}
+.btn1 {
+	background: #11A5F5;
+	color:#fff;
+}
+.btn2 {
+	border:thin solid #aaa;
+	color:#bbb;
+}

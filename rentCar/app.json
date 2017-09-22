@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/is_host/is_host",
+    "pages/my/my",
+    "pages/carList/carList",
+    "pages/carInfo/carInfo",
+    "pages/address/address",
+    "pages/notice/notice",
+    "pages/editList/editList",
+    "pages/editInfo/editInfo",
+    "pages/score/score",
+    "pages/signin/signin",
+    "pages/stick/stick",
+    "pages/suggest/suggest",
+    "pages/tip/tip",
+    "pages/uploadCar/uploadCar",
+    "pages/login/login",
+    "pages/share/share"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#15619D",
+    "navigationBarTitleText": "神州连合租车",
+    "navigationBarTextStyle":"white"
+  },
+  "debug":false,
+  "tabBar":{
+    "color":"#121212",
+    "selectedColor":"#1296DB",
+    "list":[{
+      "pagePath":"pages/home/home",
+      "text":"首页",
+      "iconPath":"images/tabbar/home0.png",
+      "selectedIconPath":"images/tabbar/home1.png"
+    },{
+      "pagePath":"pages/is_host/is_host",
+      "text":"我是车主",
+      "iconPath":"images/tabbar/is_host0.png",
+      "selectedIconPath":"images/tabbar/is_host1.png"
+    },{
+      "pagePath":"pages/my/my",
+      "text":"联系我们",
+      "iconPath":"images/tabbar/my0.png",
+      "selectedIconPath":"images/tabbar/my1.png"
+    },{
+      "pagePath":"pages/share/share",
+      "text":"帮忙分享",
+      "iconPath":"images/tabbar/share0.png",
+      "selectedIconPath":"images/tabbar/share1.png"
+    }]
+  }
+}

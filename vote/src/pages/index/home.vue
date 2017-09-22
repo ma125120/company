@@ -73,7 +73,8 @@
 </template>
 
 <script>
-import infos from '../../../static/json/info.js'
+import infos from '../../../static/json/info.js';
+
 var x1,x2;
 var arr=infos;
 export default {
@@ -148,7 +149,7 @@ export default {
         }
       }).catch(err=>{
         console.log(err);
-      })
+      });
   	},
     t_start(e) {
       var t=this;
@@ -192,11 +193,13 @@ export default {
       .then(res=>{
         let state=res.data.state;
         if(state==0) {
-          alert('投票成功');
+          t.$weui.alert('投票成功');
           window.location.reload(true);
         } else {
-          alert('投票失败')
+          t.$weui.alert('投票失败')
         }
+      }).catch(err=>{
+        console.log(err);
       });
       return false;
     },
@@ -247,7 +250,6 @@ export default {
   },
   created(){
     var t=this;
-  	this.infos=infos.slice(0,3);
     document.querySelectorAll("title")[0].innerText=`投票活动`;
     /*获取活动信息*/
     this.$http.get(`${this.$URL}/main/getmain.htm?activity_id=${this.$AC_ID}`)
@@ -275,7 +277,7 @@ export default {
         t.userList=userList;
       }
     }).catch(err=>{
-      console.log(err)
+      console.log(err);
     });
     /*获取关于我们的信息*/
     this.$http.get(`${this.$URL}/main/getContact.htm`)
@@ -285,8 +287,10 @@ export default {
         let contact=res.data.data.contact[0];
         t.contact=contact;
       }
+    }).catch(err=>{
+        console.log(err);
     });
-    
+
     /*图片轮播*/
     setInterval(()=>{
       let i=t.slide_i+1;

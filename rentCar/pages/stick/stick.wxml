@@ -1,0 +1,48 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+
+	<view class="body fuzhu">
+		<view class="page-main">
+			<checkbox-group bindchange="changeTotal">
+				<view class="item"  wx:for="{{cars}}" wx:key="{{item.id}}" >
+					<checkbox value="{{item.RUID}}" data-i="{{index}}" bindchange="changeId"  />
+					<view class="left">
+						<image src="{{item.img1}}"></image>
+					</view>
+					<view class="right">
+						<view class="t">{{item.name}}</view>
+						<view class="m">
+								<text class="btn">{{item.seat}}座</text>
+								<text class="btn">日租</text>
+								<text class="btn">月租</text>
+								<text class="score">积分：20</text>
+						</view>
+					</view>
+				</view>
+				<view class="bor_gray"></view>
+
+				<view class="item">
+					<checkbox value="" data-i="1" bindchange="changeId"  />
+					<view class="left">
+						<image src=""></image>
+					</view>
+					<view class="right">
+						<view class="t">sad</view>
+						<view class="m">
+								<text class="btn">dsa座</text>
+								<text class="btn">日租</text>
+								<text class="btn">月租</text>
+								<text class="score">积分：20</text>
+						</view>
+					</view>
+				</view>
+				<view class="bor_gray"></view>
+			</checkbox-group>
+		</view>
+	</view>
+</scroll-view>
+<view class="page-wrap">
+	<view class="footer fixed">
+		<view class="l">总计：{{total}}积分</view>
+		<view class="r" bindtap='goStick'>立即置顶</view>
+	</view>
+</view>

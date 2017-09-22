@@ -1,0 +1,96 @@
+scroll-view {
+	min-height: 100%;
+	
+	color:#ABABAB;
+}
+.body {
+	background: #fff;
+}
+form {
+	text-align: left;
+	font-size:14px;
+}
+.page-main {
+	width:90%;
+	box-sizing: border-box;
+	margin:0 auto;
+	padding:24px 0 12px;
+}
+.input {
+	display: block;
+	width:100%;
+	box-sizing: border-box;
+	height:36px;
+	color:#000;
+	box-sizing: border-box;
+	border:thin solid #bbb;
+	padding-left:16px;
+	margin-bottom: 24px;
+	border-radius: 5px;
+}
+.place {
+	color:#bbb;
+}
+.title {
+	color:#000;
+	font-size:16px;
+	padding-left:8px;
+	margin-bottom: 16px;
+}
+.title1 {
+margin-top: 16px;
+}
+.pic {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+}
+.pic>view {
+	width:28%;
+}
+.none-pic {
+	width:87px;
+	height:87px;
+	text-align:center;
+	line-height: 87px;
+	font-size:87px;
+	vertical-align: middle;
+	margin-bottom: 8px;
+	padding-bottom:10px;
+}
+view.none-pic {
+	border:thin dashed;
+}
+
+.foot {
+		background: #F5F5F5;
+		padding:8px 0 32px;
+}
+.btn {
+	width:96%;
+	line-height: 42px;
+	color:#fff;
+	background: #10A5F5;
+	margin:0 auto;
+}
+/*手机号*/
+.tel {
+	display: flex;
+}
+.tel .input {
+	width: 200px;
+	margin-right:16px;
+}
+.tel .get {
+	flex:1;
+	height:36px;
+	line-height: 36px;
+	text-align: center;
+	background: #0DA5F5;
+	color:#fff;
+	font-size:12px;
+	border-radius: 6px;
+}
+.black {
+	color:#000;
+}

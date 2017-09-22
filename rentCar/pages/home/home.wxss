@@ -1,0 +1,38 @@
+swiper {
+	height:220px;
+	margin-top: -13px;
+}
+image {
+	width:100%;
+}
+
+.location {
+	line-height: 52rpx;
+}
+.location image {
+	width:36rpx;
+	height:36rpx;
+	margin-right: 10rpx;
+}
+
+.title {
+	text-align: left;
+	margin:16rpx 0 0 32rpx;
+}
+.items {
+	display: flex;
+	flex-wrap: wrap;
+	font-size:24rpx;
+}
+.item {
+	margin:24rpx 0 0 50rpx;
+	width:120rpx;
+}
+.item image{
+	width:92rpx;
+	height:58rpx;
+}
+
+.small {
+	font-size:8px;
+}

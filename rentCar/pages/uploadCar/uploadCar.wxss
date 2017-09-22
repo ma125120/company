@@ -1,0 +1,81 @@
+scroll-view {
+	min-height: 100%;
+	color:#ABABAB;
+}
+.body {
+	background: #fff;
+}
+form {
+	text-align: left;
+	font-size:14px;
+}
+.page-main {
+	width:90%;
+	box-sizing: border-box;
+	margin:0 auto;
+	padding:36px 0;
+}
+.input {
+	display: block;
+	width:100%;
+	box-sizing: border-box;
+	height:36px;
+	color:#000;
+	box-sizing: border-box;
+	border:thin solid #bbb;
+	padding-left:16px;
+	margin-bottom: 24px;
+	border-radius: 5px;
+}
+.place {
+	color:#bbb;
+}
+.title {
+	padding-left:8px;
+	margin-bottom: 24px;
+}
+.none-pic {
+	display: inline-block;
+	width:87px;
+	height:87px;
+	text-align:center;
+	line-height: 87px;
+	margin-right: 28px;
+	padding-bottom:10px;
+	font-size:87px;
+	vertical-align: middle;
+}
+view.none-pic {
+	border:thin dashed;
+}
+
+.foot {
+		background: #F5F5F5;
+		padding:36px 0 80px 0;
+}
+.btn {
+	width:96%;
+	line-height: 42px;
+	color:#fff;
+	background: #10A5F5;
+	margin:0 auto;
+}
+
+.arrow {
+	position: relative;
+	line-height:36px;
+}
+.arrow:after {
+	content:'';
+	border-top: 8px solid #888;
+	border-left:8px solid transparent;
+	border-right:8px solid transparent;
+	position: absolute;
+	top:14px;
+	right:10px;
+	margin-left: 10rpx;
+}
+.comment {
+	padding-top:10px;
+	color:#000;
+}

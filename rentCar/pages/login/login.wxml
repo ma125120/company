@@ -1,0 +1,35 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="main">
+		<view class="head">
+			<image src="../../images/uploadCar/bg.png"></image>
+			<view>神州联合租车</view>
+		</view>
+		<view class="page-main">
+			<form bindsubmit='send_form'>
+				<view class="username item">
+					<image src='../../images/login/user.svg' class='svg'></image>
+					<input placeholder="输入您的专属用户名" name="username" focus class='input' placeholder-class='place' value='{{username}}' />
+				</view>
+				<view class="pwd item">
+					<image src='../../images/login/pwd.svg' class='svg'></image>
+					<input placeholder="输入密码" password='true'  class='input' name="password" placeholder-class='place' />
+				</view>
+				<view>
+					<button form-type='submit' disabled="{{login_flag}}" class='sub'>用户登录</button>
+					<view class="l">
+						<checkbox-group bindchange='change1'>
+						  <checkbox value='记住账号' checked="{{checks}}" class="v_m" /><text class="v_m">记住账号</text>
+						</checkbox-group>
+					</view>
+					<view class="r">
+						<navigator url="../signin/signin">没有账号？<text class='a'>立即注册</text></navigator>
+					</view>
+				</view>
+			</form>
+		</view>
+	</view>
+	<view>
+		<image src='../../images/login/bg.png' class="bg-img"></image>
+	</view>
+</scroll-view>
+

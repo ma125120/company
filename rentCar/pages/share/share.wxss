@@ -1,0 +1,36 @@
+scroll-view {
+	min-height: 100vh;
+	background: #F8F8F8;
+	font-size:14px;
+	color:#767676;
+}
+.title {
+	padding:32px 0 20px;
+}
+.erweima {
+	width:150px;
+	height:150px;
+}
+.share {
+	font-size:14px;
+	width:180px;
+	line-height:32px;
+	background: #1AAD19;
+	border-radius: 5px;
+	color:#fff;
+	margin:48px auto 36px;
+}
+.final {
+	color:#000;
+	padding-top:64px;
+}
+.svg {
+	width:20px;
+	height:20px;
+	padding-right:10px;
+	vertical-align: middle;
+}
+.text {
+	font-weight: bold;
+	color:#000;
+}

@@ -1,0 +1,8 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="title">平台使用须知</view>
+	<view class="content">
+		<view class="p" wx:for="{{info}}" wx:key="{{index}}">{{item}}</view>
+	</view>
+	
+</scroll-view>
+

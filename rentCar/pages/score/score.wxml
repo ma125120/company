@@ -1,0 +1,38 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="head">
+		<view class="score">
+			<image src="../../images/score/score.svg"></image>
+			<text>剩余积分：</text>
+			<text class="residue">{{score}}</text>
+		</view>
+		<navigator url='../stick/stick' class="stick">
+			<image src="../../images/score/stick.svg"></image>
+			<text>申请置顶</text>
+		</navigator>
+	</view>
+
+	<view class='get'>如何获取积分?</view>
+
+	<view class="jietu">
+		<view class="title1">请上传您发布朋友圈的截图:</view>
+		<view class="pic">
+					<view>
+						<view class="none-pic" wx:if="{{!picPath1}}" bindtap='chooseImg' data-i="1">+</view>
+						<image class="none-pic" wx:else bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
+					</view>
+					<view>
+						<view class="none-pic" wx:if="{{!picPath2}}" bindtap='chooseImg' data-i="2">+</view>
+						<image class="none-pic" wx:else bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
+					</view><view>
+						<view class="none-pic" wx:if="{{!picPath3}}" bindtap='chooseImg' data-i="3">+</view>
+						<image class="none-pic" wx:else bindtap='chooseImg' data-i="3" src='{{picPath3}}'></image>
+					</view>
+		</view>
+	</view>
+
+	<view class="foot">
+		<button form-type='submit' class='btn' disbaled='{{disable}}' bindtap='send_form'>确认提交</button>
+	</view>
+	
+</scroll-view>
+

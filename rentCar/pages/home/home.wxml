@@ -1,0 +1,32 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
+		<swiper-item wx:for="{{slides}}" wx:key="{{index}}">
+			<image src="{{item}}" class='s_img' mode='aspectFit'></image>
+		</swiper-item>
+	</swiper>
+
+	<view class="location">
+		<image src="../../images/home/addr.png" class='v_m'></image>
+		<text class='v_m' bindtap='chooseAddr'>当前定位城市：<text>{{address}}</text></text>
+	</view>
+	<view class="bor_gray"></view>
+
+	<block wx:for="{{type1}}" wx:key="{{item.id}}">
+		<view class="travel">
+			<view class="title">
+				<view class="left_blue v_m"></view><text class="v_m">{{item.name}}</text>
+			</view>
+			<view class="items">
+				<navigator url="../carList/carList?carIndex={{v.id}}" class="item" wx:for="{{type2[index]}}" wx:for-item="v" wx:key="{{v.id}}">
+					<image src="{{v.icon}}"></image>
+					<view wx:if="{{!v.names}}" class="text">{{v.name}}</view>
+					<view wx:else class="text">
+						<view>{{v.names[0]}}</view>
+						<view class="small">{{v.names[1]}}</view>
+					</view>
+				</navigator>
+			</view>
+		</view>
+		<view class="bor_gray"></view>
+	</block>
+</scroll-view>

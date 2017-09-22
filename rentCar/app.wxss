@@ -1,0 +1,49 @@
+/**app.wxss**/
+.main {
+	font-size:26rpx;
+	font-family: "Microsoft YaHei";
+	text-align: center;
+}
+image {
+	width:100%;
+}
+.left_blue {
+	width:12rpx;
+	height:32rpx;
+	display: inline-block;
+	border-left: 12rpx solid #0099FF;
+	margin-right: 12rpx;
+}
+.bor_gray {
+	border-bottom: thin solid #D7D7D7;
+	margin:10rpx 0 6rpx 0;
+}
+.block_gray {
+	height:10rpx;
+	width:100%;
+	background: #D7D7D7;
+}
+.v_m {
+	vertical-align: middle;
+}
+
+view.fuzhu {
+	padding-bottom:54px;
+}
+.wrap {
+	position:absolute;
+	width:100vw;
+	height:100vh;
+	left:0;
+	top:0;
+	z-index:-10;
+}
+view.fixed {
+	position: absolute;
+	bottom:0;
+	left:0;
+	z-index:100;
+}
+.my-item {
+	padding:2px 0;
+}

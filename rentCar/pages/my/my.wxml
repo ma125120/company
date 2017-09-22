@@ -1,0 +1,15 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="head">
+		<image src="{{userInfo.avatarUrl}}"></image>
+		<view class='text'>{{userInfo.nickName}}</view>
+	</view>
+	<view class="block_gray"></view>
+
+	<view class="body">
+		<navigator url='{{item.url}}' class="item" wx:for="{{menus}}" wx:key="{{index}}">
+			<view class="left">{{item.title}}</view>
+			<view class="right">></view>
+		</navigator>
+	</view>
+</scroll-view>
+

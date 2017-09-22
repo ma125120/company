@@ -1,0 +1,23 @@
+scroll-view {
+	min-height: 100%;
+	background: #6699CC;
+}
+
+textarea {
+	width:90%;
+	text-align: left;
+	padding:20rpx 0 0 20rpx;
+	background: #fff;
+	margin:28rpx auto;
+}
+.place {
+	color:#888;
+}
+.btn {
+	width:280rpx;
+	height:80rpx;
+	font-size:30rpx;
+	background: #FFCC33;
+	border-radius: 10rpx;
+	margin:28rpx auto;
+}
