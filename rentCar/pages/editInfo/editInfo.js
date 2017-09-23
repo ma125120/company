@@ -9,18 +9,14 @@ Page({
     disable:false,
     types:['自驾','可代驾','配驾'],
     ti:0,
-    notices:['1.公司注册需上传营业执照照片，个体车辆上传行驶证照片；',
-    '2.请务必在公司所在地或车辆停放地进行注册，否则您的位置显示将不准确；',
-    '3.请及时管理您发布的信息，如已出租请在系统上标注说明。',
-    '4.注册的公司或个人，请添加我们的官方微信号【SZLHZC01】咨询和沟通相关事宜，我们将通过官微给您推送通知和活动信息。',
-    '5.如有问题可与各地市服务经理联系，平台咨询电话：18905751238。']
+    notices:[]
   },
   onLoad: function (options) {
   	var t=this,
         id=options.id||1;
   	app.check();
     t.setData({
-      //notices: app.globalData.help.note_upload.split('\n')
+      notices: app.globalData.help.note_upload.split('\n')
     });
   	if(!_DEV_) {
       app.checkLogin('../editList/editList');

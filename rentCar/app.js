@@ -14,6 +14,11 @@ App({
       success: function(res) {
         t.globalData.latitude = res.latitude;
         t.globalData.longitude = res.longitude;
+        req({
+          url:`${t.baseURL}/getAddrInfo.do?location=${res.latitude},${res.longitude}`
+        }).then(res=>{
+          t.globalData.address=res.data.result.addressComponent.province+res.data.result.addressComponent.city;
+        });
       }
     });
     /*获取备注*/

@@ -26,5 +26,17 @@ Page({
     		userInfo:app.globalData.userInfo
     	});
     }
+  },
+  active() {
+    wx.showActionSheet({
+      itemList: ['联系电话：神州连合租车18905751238'],
+      success:function(res) {
+        if(res.tapIndex==0) {
+          wx.makePhoneCall({
+            phoneNumber: '18905751238',
+          });
+        }
+      }
+    })
   }
 })

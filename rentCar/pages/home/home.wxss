@@ -1,11 +1,13 @@
 swiper {
-	height:220px;
-	margin-top: -13px;
+	height:180px;
+	margin-top:-14px;
 }
 image {
 	width:100%;
 }
-
+.s_img {
+	height:180px;
+}
 .location {
 	line-height: 52rpx;
 }

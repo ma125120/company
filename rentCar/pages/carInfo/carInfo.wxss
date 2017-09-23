@@ -29,10 +29,7 @@ swiper {
 	border-bottom-right-radius: 10rpx;
 }
 swiper {
-	margin-top:30rpx;
-}
-swiper image {
-	height:274rpx;
+	height:220px;
 }
 .title {
 	line-height: 80rpx;

@@ -2,7 +2,7 @@
 	<view class="main">
 		<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
 			<swiper-item wx:for="{{slides}}" wx:key="{{index}}">
-				<image src="{{item}}" class='s_img'></image>
+				<image src="{{item}}" class='s_img'  mode='aspectFit'></image>
 			</swiper-item>
 		</swiper>
 		<view class="body fuzhu">
@@ -63,14 +63,13 @@
 				
 			</view>
 		</view>
-		
 	</view>
 </scroll-view>
 <view class="page-wrap">
 	<view class="tel-view fixed">
 					<view class="l">
 						<image src="../../images/carInfo/call.svg" class='v_m'></image>
-						<text class="content v_m">电话号码</text>
+						<text class="content v_m">{{car.Person_phone}}</text>
 					</view>
 					<view class="r" bindtap="call">立即拨打</view>
 	</view>

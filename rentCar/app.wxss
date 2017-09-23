@@ -31,7 +31,7 @@ view.fuzhu {
 	padding-bottom:54px;
 }
 .wrap {
-	position:absolute;
+	position:fixed;
 	width:100vw;
 	height:100vh;
 	left:0;
@@ -39,7 +39,7 @@ view.fuzhu {
 	z-index:-10;
 }
 view.fixed {
-	position: absolute;
+	position: fixed;
 	bottom:0;
 	left:0;
 	z-index:100;

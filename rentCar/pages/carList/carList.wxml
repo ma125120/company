@@ -1,5 +1,5 @@
 <scroll-view scroll-y="true" scroll-top='0' class='main'>
-	<image src="../../images/carList/top.jpg" class='head-img'></image>
+	<image src="{{my_img}}" class='head-img'></image>
 	<view class="head-title">
 		<view>共有{{cars.length}}辆车辆供您选择</view>
 		<navigator url='../notice/notice'>使用前请先查看《平台使用须知》</navigator>
@@ -9,14 +9,14 @@
 		<view class="items">
 			<view class="item"  wx:for="{{cars}}" wx:key="{{index}}">
 				<view  data-url="../carInfo/carInfo?id={{item.RUID}}" bindtap='nav'>
-					<image src="{{item.img1}}"></image>
+					<image src="{{item.img1}}" mode='aspectFit'></image>
 					<view class="title">{{item.name}}</view>
 					<view class="bottom">
 						<view class="btn">{{item.seat}}座</view>
 						<view class="btn">{{item.type}}</view>			
 					</view>
 				</view>
-				<view class="distance" bindtap='toLocation'>21km</view>
+				<view class="distance" bindtap='toLocation'>{{item.distance}}km</view>
 			</view>
 		</view>
 	</view>

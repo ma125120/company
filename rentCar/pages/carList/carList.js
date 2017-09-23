@@ -5,26 +5,48 @@ import cars from '../../utils/json/cars.js';
 Page({
   data: {
   	cars:[],
-    distance:33
+    distance:33,
+    my_img:''
   },
   onLoad: function (options) {
   	var t=this;
     var carIndex=options.carIndex||1;
-  	app.check();
+  	app.check();wx.showLoading({title:'正在加载中！'});
     t.setData({
       my_img:app.globalData.help.front
     });
   	if(!_DEV_) {
   		req({
-  			url:`${URL}/getAllRentalByType.do?carType=${carIndex}&latitude=${app.globalData.latitude}&longitude=${app.globalData.longitude}`,
+  			url:`${URL}/getRentals.do?carType=${carIndex}&lat=${app.globalData.latitude}&lon=${app.globalData.longitude}&dist=100`,
         header:{
           Cookie:app.globalData.head
         },
   		}).then(res=>{
-  			var cars=res.data.data;
-        cars=toImg(cars);
-        t.setData({ cars });
-  		}).catch(err=>{
+  			var cars=res.data;
+        
+        if(cars.length==0) {
+          return req({
+            url:`${URL}/getRentals.do?carType=${carIndex}&lat=${app.globalData.latitude}&lon=${app.globalData.longitude}&dist=10000`,
+            header:{
+              Cookie:app.globalData.head
+            },
+          });
+        } else {
+          cars=toImg(cars).map((v)=>{
+          v.distance=v.distance.toFixed(2);
+            return v;
+          })
+          t.setData({ cars });
+          wx.hideLoading();
+        }
+  		}).then(res=>{
+        var cars=res.data;
+        cars=toImg(cars).map((v)=>{
+          v.distance=v.distance.toFixed(2);
+          return v;
+        })
+        t.setData({ cars });wx.hideLoading();
+      }).catch(err=>{
   			toast();
   		});
   	} else {

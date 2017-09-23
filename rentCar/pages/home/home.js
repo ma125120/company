@@ -26,6 +26,8 @@ Page({
   onLoad: function (options) {
     var t=this;
   	app.check();
+    /*自动获取城市*/
+    wx.showLoading({title:'正在加载中！'});
     /*获取轮播图*/
     req({
       url:`${URL}/Resources/RollsImgs.json`
@@ -46,9 +48,14 @@ Page({
           }).then(res=>{
             type2[i]=splitLeft(res.data.data);
             if(i==type1.length-1) {
+              wx.hideLoading();
               t.setData({
-                type1:type1, type2:type2
-              })
+                type1:type1, type2:type2,
+                address:app.globalData.address
+              });
+              setTimeout(()=>{
+                t.setData({address:app.globalData.address});              
+              },1000)
             }
           });
         },i*200);

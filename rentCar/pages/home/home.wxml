@@ -1,7 +1,7 @@
 <scroll-view scroll-y="true" scroll-top='0' class='main'>
 	<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
 		<swiper-item wx:for="{{slides}}" wx:key="{{index}}">
-			<image src="{{item}}" class='s_img' mode='aspectFit'></image>
+			<image src="{{item}}" class='s_img'></image>
 		</swiper-item>
 	</swiper>
 
