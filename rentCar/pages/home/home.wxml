@@ -6,10 +6,14 @@
 	</swiper>
 
 	<view class="location">
-		<image src="../../images/home/addr.png" class='v_m'></image>
-		<text class='v_m' bindtap='chooseAddr'>当前定位城市：<text>{{address}}</text></text>
+		<view class="my-l">
+			<view class="hidden">
+				<image src="../../images/home/addr.png" class='v_m'></image>
+				<text class='v_m'>当前定位城市：<text>{{address}}</text></text>
+			</view>
+		</view>
+		<view class="my-r"  bindtap='chooseAddr'>(区域选择)</view>
 	</view>
-	<view class="bor_gray"></view>
 
 	<block wx:for="{{type1}}" wx:key="{{item.id}}">
 		<view class="travel">

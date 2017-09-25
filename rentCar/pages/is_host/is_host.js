@@ -21,7 +21,7 @@ Page({
   	app.check();
     var t=this;
     t.setData({
-      notices:app.globalData.help.note_host.split('\n'),
+      //notices:app.globalData.help.note_host.split('\n'),
       slides:[app.globalData.help.back]
     });
   },

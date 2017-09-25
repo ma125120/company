@@ -11,13 +11,6 @@
 				<view class="{{index%2==0?'odd':''}} item" bindtap='goTo' data-url='{{item.url}}'>{{item.title}}</view>
 			</view>
 		</view>
-
-		<view class="footer">
-			<view class="title">通知:</view>
-			<view class="notices">
-				<view wx:for="{{notices}}" wx:key="{{index}}" class='my-item'>{{item}}</view>
-			</view>
-		</view>
 	</view>
 	
 </scroll-view>

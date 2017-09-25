@@ -9,7 +9,26 @@ image {
 	height:180px;
 }
 .location {
-	line-height: 52rpx;
+	line-height: 32px;
+	font-size:14px;
+	display: flex;
+	border-bottom: thin solid #ddd;
+}
+.my-l {
+	width:70%;
+	line-height: 32px;
+	overflow-x:auto;
+}
+.hidden {
+	padding-left:10px;
+	width:200%;
+	overflow-x:auto;
+	text-align: left;
+}
+.my-r {
+	flex:1;
+	line-height: 32px;
+	background: #1F9CDD;
 }
 .location image {
 	width:36rpx;

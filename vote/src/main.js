@@ -8,6 +8,7 @@ import './style/weui.css'
 import axios from 'axios'
 import md5 from './util/md5.js'
 import weui from 'weui.js';
+import {u} from './util/util.js'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper);
@@ -17,11 +18,10 @@ Vue.prototype.$URL='https://dev.bchltech.cn';
 Vue.prototype.$AC_ID=10;
 Vue.prototype.$md5=md5;
 Vue.prototype.$weui=weui;
+Vue.prototype.$u=u;
 
 import './util/rem.js'
 Vue.config.productionTip = false
-
-
 
 /* eslint-disable no-new */
 new Vue({

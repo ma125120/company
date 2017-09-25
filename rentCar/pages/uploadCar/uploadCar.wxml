@@ -2,28 +2,24 @@
 	<form  bindsubmit='send_form'>
 		<view class="body">
 			<view class="page-main">
-				<input type="text" class='input' placeholder="车辆名称"  name="name" placeholder-class='place' />
+				<input type="text" class='input' placeholder="车辆名称,例如：奥迪A6L"  name="name" placeholder-class='place' />
+				
 				<picker class="input arrow" range="{{all}}" range-key="name" bindchange='changeAll'>{{all[ai].name}}</picker>
 				<!-- <input type="text" class='input' placeholder="车型" name="carType" placeholder-class='place' /> -->
-				<input type="text" class='input' placeholder="品牌" name="brand" placeholder-class='place' />
-				<input type="number" class='input' placeholder="座位数" name="seat" placeholder-class='place' />
-				<input type="number" class='input' placeholder="出租价格" name="price" placeholder-class='place' />
+				<input type="text" class='input' placeholder="品牌,例如：奥迪" name="brand" placeholder-class='place' />
+				<input type="number" class='input' placeholder="座位数,例如：5" name="seat" placeholder-class='place' />
+				<input type="number" class='input' placeholder="出租价格,例如：300" name="price" placeholder-class='place' />
+				
 				<picker class="input arrow" range="{{types}}" bindchange='changeType'>{{types[ti]}}</picker>
 				<!-- <input type="text" class='input' placeholder="出租方式" name="type" placeholder-class='place' /> -->
 				<input type="text" class='input' placeholder="备注" name="note" placeholder-class='place' />
 
 				<view class="title">车辆照片:</view>
-				<view class="none-pic" wx:if="{{!picPath1}}" bindtap='chooseImg' data-i="1">+</view>
+				<view class="none-pic" wx:if="{{!picPath1}}" bindtap='chooseImg' data-i="1"><view>+</view><image src='../../images/bg1.jpg'></image></view>
 				<image class="none-pic" wx:else bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
-				<view class="none-pic" wx:if="{{!picPath2}}" bindtap='chooseImg' data-i="2">+</view>
+				<view class="none-pic" wx:if="{{!picPath2}}" bindtap='chooseImg' data-i="2"><view>+</view><image src='../../images/bg2.jpg'></image></view>
 				<image class="none-pic" wx:else bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
 
-				<view class="comment">
-					<view class="">通知:</view>
-					<view class="notices">
-						<view wx:for="{{notices}}" wx:key="{{index}}" class='my-item'>{{item}}</view>
-					</view>
-				</view>
 			</view>
 			<view class="foot">
 				<button form-type='submit' class='btn' disabled="{{disable}}">确认提交</button>

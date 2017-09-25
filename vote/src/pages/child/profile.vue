@@ -110,7 +110,7 @@ export default {
           t.$weui.alert('投票成功');
           window.location.reload(true);
         } else {
-          t.$weui.alert('投票失败')
+          t.$weui.alert('投票失败');
         }
       });
       return false;

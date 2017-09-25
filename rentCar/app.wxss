@@ -1,7 +1,7 @@
 /**app.wxss**/
 .main {
 	font-size:26rpx;
-	font-family: "Microsoft YaHei";
+	font-family: Helvetica, Arial, sans-serif;
 	text-align: center;
 }
 image {

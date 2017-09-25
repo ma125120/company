@@ -49,18 +49,24 @@ export default {
     }
   },
   created() {
+    var t=this,{$u:{getCookie,setCookie}}=t;
     this.getAcId();
     this.getLogin();
-    this.$http.get(`${this.$URL}/iden/setIden.htm`)
-    .then(res=>{
-      let {state}=res.data;
-      if(state==0) {
-        let access=res.data.data['identity.access'];
-        window.localStorage.access=access;
-      }
-    }).catch(err=>{
-        console.log(err);
-    });
+    if(!getCookie("access")) {
+      this.$http.get(`${this.$URL}/iden/setIden.htm`)
+      .then(res=>{
+        let {state}=res.data;
+        if(state==0) {
+          let access=res.data.data['identity.access'];
+          window.localStorage.access=access;
+          setCookie("access",access,1);
+        }
+      }).catch(err=>{
+          console.log(err);
+      });
+    } else {
+      window.localStorage.access=getCookie("access");
+    }
   }
 }
 </script>

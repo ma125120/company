@@ -155,6 +155,7 @@ export default {
     var t=this,
         _id=t.$route.query.id,
         num_id=t.$route.query.num_id;
+    /*获取礼物列表*/
     t.$http.get(`${t.$URL}/pre/getpreList.htm`)
     .then(res=>{
       let state=res.data.state;
@@ -165,22 +166,15 @@ export default {
     }).catch(err=>{
       console.log(err);
     });
+    /*获取选手信息及投票数量*/
     t.$http.get(`${t.$URL}/main/getuser.htm?activity_id=${t.$AC_ID}&user_id=${_id}`)
     .then(res=>{
       let state=res.data.state;
       if(state==0) {
-        let info=res.data.data.userInfo[0];
-        t.info=info;
-      }
-    });
-
-    /*获取礼物数量*/
-    this.$http.get(`${t.$URL}/main/getuserPre.htm?number=${num_id}`)
-    .then(res=>{
-      let state=res.data.state;
-      if(state==0) {
-        let gift_num=res.data.data.userPreTotal;
+        let info=res.data.data.userInfo[0],
+        gift_num=res.data.data.userInfo[1].userPreTotal;
         t.gift_num=gift_num;
+        t.info=info;
       }
     });
 

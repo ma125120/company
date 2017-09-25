@@ -1,5 +1,5 @@
 var app=getApp();
-var {req,toast,md5,baseURL:URL,Goto,checkForm,_DEV_, toImg }=app;
+var {req,toast,sort,md5,baseURL:URL,Goto,checkForm,_DEV_, toImg }=app;
 
 import cars from '../../utils/json/cars.js';
 Page({
@@ -23,7 +23,7 @@ Page({
         },
   		}).then(res=>{
   			var cars=res.data;
-        
+           
         if(cars.length==0) {
           return req({
             url:`${URL}/getRentals.do?carType=${carIndex}&lat=${app.globalData.latitude}&lon=${app.globalData.longitude}&dist=10000`,
@@ -33,9 +33,10 @@ Page({
           });
         } else {
           cars=toImg(cars).map((v)=>{
-          v.distance=v.distance.toFixed(2);
-            return v;
-          })
+            v.distance=v.distance.toFixed(2);
+              return v;
+          });
+          sort(cars,'distance',true);
           t.setData({ cars });
           wx.hideLoading();
         }
@@ -44,7 +45,8 @@ Page({
         cars=toImg(cars).map((v)=>{
           v.distance=v.distance.toFixed(2);
           return v;
-        })
+        });
+        sort(cars,'distance',true);
         t.setData({ cars });wx.hideLoading();
       }).catch(err=>{
   			toast();

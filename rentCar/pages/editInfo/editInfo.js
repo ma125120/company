@@ -16,7 +16,7 @@ Page({
         id=options.id||1;
   	app.check();
     t.setData({
-      notices: app.globalData.help.note_upload.split('\n')
+      //notices: app.globalData.help.note_upload.split('\n')
     });
   	if(!_DEV_) {
       app.checkLogin('../editList/editList');

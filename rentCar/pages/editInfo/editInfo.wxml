@@ -40,13 +40,6 @@
 				<image class="none-pic" wx:else bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
 				<view class="none-pic" wx:if="{{!picPath2}}" bindtap='chooseImg' data-i="2">+</view>
 				<image class="none-pic" wx:else bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
-
-				<view class="comment">
-					<view class="black">通知:</view>
-					<view class="notices">
-						<view wx:for="{{notices}}" wx:key="{{index}}" class='my-item'>{{item}}</view>
-					</view>
-				</view>
 			</view>
 			
 

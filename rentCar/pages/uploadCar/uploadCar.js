@@ -17,7 +17,7 @@ Page({
   	var t=this;
   	app.check();
     t.setData({
-      notices: app.globalData.help.note_upload.split('\n')
+      //notices: app.globalData.help.note_upload.split('\n')
     });
   	if(!_DEV_) {
   		app.checkLogin('../uploadCar/uploadCar');
