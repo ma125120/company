@@ -143,7 +143,7 @@ Page({
           toast('上传成功!');
           setTimeout(()=>{
             wx.switchTab({url:'../is_host/is_host'},2000);
-          })
+          },2000)
         } else {
           toast('上传失败！');
           t.setData({ disable:false });
@@ -187,7 +187,7 @@ Page({
           toast('上传成功!');
           setTimeout(()=>{
             wx.switchTab({url:'../is_host/is_host'},2000);
-          })
+          },2000)
         } else {
           toast('上传失败！');
           t.setData({ disable:false });

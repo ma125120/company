@@ -2,7 +2,7 @@
 	<view class="main">
 		<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
 			<swiper-item wx:for="{{slides}}" wx:key="{{index}}">
-				<image src="{{item}}" class='s_img'  mode='aspectFit'></image>
+				<image src="{{item}}" class='s_img'  mode='widthFix'></image>
 			</swiper-item>
 		</swiper>
 		<view class="body fuzhu">
@@ -45,7 +45,46 @@
 					<text class='gray'>公司地址：</text>
 					<text class="content">{{car.Business_addr}}</text>
 				</view>
-				<view  class="w">
+
+				<view class="gray-block"></view>
+				<view class="calendar">
+					<view class="my-flex">
+						<view class="l">出租信息：</view>
+						<navigator url='../calendar/calendar?id={{car.RUID}}' class="r">出租日历</navigator>
+					</view>
+					<view class="weekdays my-flex">
+						<block wx:for="{{weekdays}}" wx:key="{{index}}">
+							<view class="col-7">{{item}}</view>
+						</block>
+					</view>
+					<view class="my-flex">
+						<block wx:for="{{dates}}" wx:key="{{index}}">
+							<view class="week col-7 date"><text class="cir cir{{item.status}}">{{item.num}}</text></view>
+						</block>
+					</view>
+
+					<view class="my-flex my">
+						<view class="col">
+							<text class="circle"></text>
+							<text>未租</text>
+						</view>
+						<view class="col">
+							<text class="circle red"></text>
+							<text>已租</text>
+						</view>
+						<view class="col">
+							<text class="circle half"></text>
+							<text>上午已租</text>
+						</view>
+						<view class="col">
+							<text class="circle half1"></text>
+							<text>下午已租</text>
+						</view>
+					</view>
+				</view>
+				<view class="gray-block"></view>
+
+				<view  class="w bot-com">
 					<text class='gray'>特别备注：</text>
 					<text class="beizhu">{{car.note}}</text>
 				</view>

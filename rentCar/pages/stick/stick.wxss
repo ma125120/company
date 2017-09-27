@@ -24,13 +24,14 @@ image {
 .m {
 	display: flex;
 	flex-wrap: wrap;
+  align-items:center;
 }
 .item {
 	padding:20rpx 20rpx 10rpx 0 ;
 }
 .left image {
 	width:142rpx;
-	height:142rpx;
+	/*height:142rpx;*/
 	border-radius: 20rpx;
 	margin:20rpx 32rpx;
 }

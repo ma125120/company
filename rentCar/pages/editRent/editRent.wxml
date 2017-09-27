@@ -10,7 +10,7 @@
 				<view><text class="gray">出租方式：</text>{{item.price}}/天</view>
 				<view><text class="gray">座位数：</text>{{item.seat}}</view>
 			</view>
-			<navigator url='../editInfo/editInfo?id={{item.RUID}}' class="r"><text class="gray">修改</text></navigator>
+			<navigator url='../myCalendar/myCalendar?id={{item.RUID}}' class="r"><text class="gray">出租信息</text></navigator>
 		</view>
 		<view class="bor_gray"></view>
 	</block>

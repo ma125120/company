@@ -16,7 +16,10 @@
     "pages/tip/tip",
     "pages/uploadCar/uploadCar",
     "pages/login/login",
-    "pages/share/share"
+    "pages/share/share",
+    "pages/editRent/editRent",
+    "pages/calendar/calendar",
+    "pages/myCalendar/myCalendar"
   ],
   "window":{
     "backgroundTextStyle":"light",

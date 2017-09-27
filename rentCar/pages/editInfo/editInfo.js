@@ -7,13 +7,14 @@ Page({
     ai:0,
     imgs:[],
     disable:false,
-    types:['自驾','可代驾','配驾'],
+    types:['自驾','可配司机','配驾'],
     ti:0,
     notices:[]
   },
   onLoad: function (options) {
   	var t=this,
         id=options.id||1;
+    wx.showLoading({title:'正在加载中！'});
   	app.check();
     t.setData({
       //notices: app.globalData.help.note_upload.split('\n')
@@ -30,6 +31,7 @@ Page({
   			var info=res.data.data[0],
             imgs=info.imgs&&info.imgs.split(",")||[0,1],
             ai;
+        t.setData({info:toImg(info)});
         ai=t.data.all.filter((v,i)=>{
           if(v.id==info.carType) {
             v.i=i;
@@ -38,6 +40,7 @@ Page({
         })[0].i;
         let ti=t.data.types.indexOf(info.type);
         if(ti==-1) ti=0;
+        wx.hideLoading();
         t.setData({ info: toImg(info), ai , picPath1: imgs[0] , picPath2:imgs[1] ,imgs ,
         ti:ti });
   		}).catch(err=>{
@@ -102,6 +105,7 @@ Page({
   send_form(e) {
     var data=e.detail.value,t=this,sp=[];
     data=Object.assign({},t.data.info,data);
+    //console.log(data);return false;
     var f=checkSpace(data);
     if(f||t.data.picPath1==""||t.data.picPath2=="") {
       toast('必填参数有空，请重新填写');

@@ -7,10 +7,6 @@
 					<input type="text" class='input' placeholder="车辆名称"  name="name" placeholder-class='place' value='{{info.name}}' />
 				</view>
 				<view class="item">
-					<view class="l">车辆名称:</view>
-					<input type="text" class='input' placeholder="车辆名称"  name="name" placeholder-class='place' value='{{info.name}}' />
-				</view>
-				<view class="item">
 					<view class="l">车型:</view>
 					<picker class="input arrow" range="{{all}}" range-key="name" bindchange='changeAll'>{{all[ai].name}}</picker>
 				</view>
@@ -20,7 +16,7 @@
 				</view>
 				<view class="item">
 					<view class="l">座位数:</view>
-					<input type="number" class='input' placeholder="座位数" name="carType" placeholder-class='place' value='{{info.seat}}' />
+					<input type="number" class='input' placeholder="座位数" name="seat" placeholder-class='place' value='{{info.seat}}' />
 				</view>
 				<view class="item">
 					<view class="l">出租价格:</view>

@@ -13,5 +13,11 @@
 		</view>
 	</view>
 	
+	<view class="shuoming">
+		<view class="my-title">上传和修改说明：</view>
+		<view class="my-content {{index==2?'active':''}}" wx:for="{{notices}}" wx:key="{{index}}" >
+			{{item}}	
+		</view>
+	</view>
 </scroll-view>
 

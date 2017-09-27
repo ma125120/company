@@ -41,14 +41,17 @@ Page({
           wx.hideLoading();
         }
   		}).then(res=>{
-        var cars=res.data;
-        cars=toImg(cars).map((v)=>{
-          v.distance=v.distance.toFixed(2);
-          return v;
-        });
-        sort(cars,'distance',true);
-        t.setData({ cars });wx.hideLoading();
+        if(res) {
+          var cars=res.data;
+          cars=toImg(cars).map((v)=>{
+            v.distance=v.distance.toFixed(2);
+            return v;
+          });
+          sort(cars,'distance',true);
+          t.setData({ cars });wx.hideLoading();
+        }
       }).catch(err=>{
+        console.log(err)
   			toast();
   		});
   	} else {

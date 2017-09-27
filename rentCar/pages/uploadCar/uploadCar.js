@@ -9,7 +9,7 @@ Page({
     disable:false,
     all:[],
     ai:0,
-    types:['自驾','可代驾','配驾'],
+    types:['自驾','可配司机','配驾'],
     ti:0,
     notices:[]
   },

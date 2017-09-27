@@ -33,6 +33,22 @@ image {
 .notice {
 	padding:4rpx 0
 }
-.my-item {
-	padding:2px 0;
+
+.shuoming {
+	text-align: left;
+	width:94%;
+	font-size:12px;
+	word-break:break-all;
+	margin:0 auto;
+}
+.my-title {
+	font-size:15px;
+	font-weight: bold;
+}
+.my-content {
+	padding:4px 0;
+}
+.active {
+	color:#0066FF;
+	border-radius: 5px;
 }

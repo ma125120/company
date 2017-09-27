@@ -33,7 +33,10 @@ Page({
       url:`${URL}/Resources/RollsImgs.json`
     }).then(res=>{
       var slides=res.data;
-      t.setData({slides:[`${URL}${slides[0].src}`,`${URL}${slides[1].src}`,`${URL}${slides[2].src}`]});
+      slides=slides.map((v=>{
+        return `http://szlhzc.bchltech.cn/SZZC/${v.src}`;
+      }));
+      t.setData({slides});
     });
     req({
       url:`${URL}/getCarTypeIndex.do`

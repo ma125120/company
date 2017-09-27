@@ -47,3 +47,61 @@ view.fixed {
 .my-item {
 	padding:2px 0;
 }
+
+.date text {
+	overflow: hidden;
+}
+.cir4281 {
+	background: #f00;
+	color:#fff;
+}
+.cir4282,
+.cir4283 {
+	position: relative;
+}
+.cir4282:before {
+	content:'';
+	position: absolute;
+	bottom:50%;
+	left:0;
+	width:36px;
+	height:36px;
+	background: #f00;
+	z-index:-10;
+}
+.cir4283:before {
+	content:'';
+	position: absolute;
+	top:50%;
+	left:0;
+	width:36px;
+	height:36px;
+	background: #f00;
+	z-index:-10;
+}
+text {
+	vertical-align: middle;
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+::-webkit-scrollbar  
+{  
+    width: 0px;  
+    height: 0px;  
+    background-color: #F5F5F5;  
+}  
+  
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track  
+{  
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);  
+    border-radius: 10px;  
+    background-color: #F5F5F5;  
+}  
+  
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb  
+{  
+    border-radius: 10px;  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color: #f00;  
+} 

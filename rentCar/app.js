@@ -1,12 +1,13 @@
 //app.js
 import {req,toast,sort,checkForm,toDate,filter,checkSpace} from './utils/util.js'
 import md5 from './utils/md5.js';
-
+import {getCalendar} from './utils/date.js'
 var getConf=function(data) {
   var arr=data.split("\n");
 }
 
 App({
+  getCalendar,
   onLaunch: function() {
     var t=this;
     wx.getLocation({

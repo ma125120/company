@@ -9,15 +9,26 @@ image {
 	height:180px;
 }
 .location {
-	line-height: 32px;
+	line-height: 24px;
 	font-size:14px;
 	display: flex;
+	font-weight: bold;
 	border-bottom: thin solid #ddd;
 }
 .my-l {
-	width:70%;
-	line-height: 32px;
+	width:75%;
 	overflow-x:auto;
+	background: #dfdfdf;
+	border-radius: 5px;
+	margin:4px 0 4px 12px;
+}
+.rotate90 {
+	position: absolute;
+	top:4px;
+	transform: rotate(90deg);
+	left:-20px;
+	font-size:16px;
+	color:#888;
 }
 .hidden {
 	padding-left:10px;
@@ -27,8 +38,9 @@ image {
 }
 .my-r {
 	flex:1;
-	line-height: 32px;
-	background: #1F9CDD;
+	position: relative;
+	font-size:14px;
+	line-height: 28px;
 }
 .location image {
 	width:36rpx;

@@ -9,14 +9,14 @@
 		<view class="items">
 			<view class="item"  wx:for="{{cars}}" wx:key="{{index}}">
 				<view  data-url="../carInfo/carInfo?id={{item.RUID}}" bindtap='nav'>
-					<image src="{{item.img1}}" mode='aspectFit'></image>
+					<image src="{{item.img1}}" mode='widthFix'></image>
 					<view class="title">{{item.name}}</view>
 					<view class="bottom">
 						<view class="btn">{{item.seat}}座</view>
-						<view class="btn">{{item.type}}</view>			
+						<view class="btn">{{item.type}}</view>
+						<view class="distance" bindtap='toLocation'>{{item.distance}}km</view>			
 					</view>
 				</view>
-				<view class="distance" bindtap='toLocation'>{{item.distance}}km</view>
 			</view>
 		</view>
 	</view>

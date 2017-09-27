@@ -6,7 +6,7 @@
 				<view class="item"  wx:for="{{cars}}" wx:key="{{item.id}}" >
 					<checkbox value="{{item.RUID}}" data-i="{{index}}" bindchange="changeId"  />
 					<view class="left">
-						<image src="{{item.img1}}"></image>
+						<image src="{{item.img1}}"  mode='widthFix'></image>
 					</view>
 					<view class="right">
 						<view class="t">{{item.name}}</view>
@@ -20,7 +20,7 @@
 				</view>
 				<view class="bor_gray"></view>
 
-				<view class="item">
+<!-- 				<view class="item">
 					<checkbox value="" data-i="1" bindchange="changeId"  />
 					<view class="left">
 						<image src=""></image>
@@ -34,8 +34,8 @@
 								<text class="score">积分：20</text>
 						</view>
 					</view>
-				</view>
-				<view class="bor_gray"></view>
+				</view> -->
+				<!-- <view class="bor_gray"></view> -->
 			</checkbox-group>
 		</view>
 	</view>

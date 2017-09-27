@@ -14,6 +14,7 @@ Page({
   	app.check();
   	if(!_DEV_) {
       app.checkLogin('../stick/stick');
+      wx.showLoading({title:'正在加载中！'});
   		req({
         url:`${URL}/getMyRentalCars.do`,
         header:{
@@ -29,6 +30,7 @@ Page({
                   }
                 })
       }).then(res=>{
+        wx.hideLoading();
         if(res.data.code==4282) {
           t.setData({score:0});
         } else {
@@ -57,9 +59,12 @@ Page({
     var t=this;
     if(t.data.score<t.data.total) {
       toast('积分不足！');
+      return false;
     }
     if(t.data.total==0) {
       toast('请先进行选择！');
+      return false;
     }
+    toast('置顶成功');
   }
 })

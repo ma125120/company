@@ -1,0 +1,28 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="head">点击可更改</view>
+	<view class="weekdays my-flex">
+		<block wx:for="{{weekdays}}" wx:key="{{index}}">
+			<view class="week col-7">{{item}}</view>
+		</block>
+	</view>
+
+	<view class="content">
+		<view wx:for="{{calendar.others}}" wx:key="{{i1}}" wx:for-item="parent" wx:for-index="i1">
+			<view class="title">{{parent.title}}</view>
+			<view class="my-flex" >
+				<block wx:for="{{parent.dates}}" wx:key="{{i2}}" wx:for-item="child" wx:for-index="i2">
+					<view wx:if="{{child==''}}" class='col-7'></view>
+					<view class="date col-7" wx:else bindtap="changeStatus" data-obj="{{child}}" data-parent="{{i1}}" data-child="{{i2}}"><text class="cir {{child.disable?'disable':''}} cir{{child.status}}">{{child.num}}</text></view>
+				</block>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+<view class="fixed">
+	<view><text class='space block'></text><text>未租</text></view>
+	<view><text class='red block'></text><text>已租</text></view>
+	<view><text  class='half block'></text><text>上午已租</text></view>
+	<view><text  class='half1 block'></text><text>下午已租</text></view>
+	<view class='btn' bindtap="sure">确认更改</view>
+</view>
+
