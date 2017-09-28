@@ -22,32 +22,35 @@ image {
 	border-radius: 5px;
 	margin:4px 0 4px 12px;
 }
-.rotate90 {
-	position: absolute;
-	top:4px;
-	transform: rotate(90deg);
-	left:-20px;
-	font-size:16px;
-	color:#888;
-}
+
 .hidden {
 	padding-left:10px;
 	width:200%;
 	overflow-x:auto;
 	text-align: left;
+	display: flex;
+	font-size:14px;
+	align-items: center;
+	line-height: 24px;
 }
 .my-r {
 	flex:1;
 	position: relative;
 	font-size:14px;
-	line-height: 28px;
+	line-height: 32px;
 }
 .location image {
 	width:36rpx;
 	height:36rpx;
 	margin-right: 10rpx;
 }
-
+.rotate90 {
+	position: absolute;
+	top:6px;
+	width:16px;
+	height:16px;
+	left:-28px;
+}
 .title {
 	text-align: left;
 	margin:16rpx 0 0 32rpx;

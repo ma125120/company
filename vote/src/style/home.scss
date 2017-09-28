@@ -68,16 +68,18 @@ $gray:#9c9c9c;
 	.items {
 		margin:20px 0;
 		overflow:hidden;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
 		.item {
-			float:left;
 			width:48%;
 			border-bottom:thin solid #DEDEDE;
-			margin-bottom:10px;
+			margin-bottom:20px;
 			position: relative;
 			top:0;
 			left:0;
 			img {
-			min-height:165px;
+				min-height:165px;
 			}
 			.ab {
 				z-index:100;

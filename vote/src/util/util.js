@@ -37,6 +37,7 @@ document.cookie=c_name+ "=" +escape(value)+
 //取回cookie
 u.getCookie=function(c_name)
 {
+		var c_start,c_end;
 if (document.cookie.length>0)
   {
   c_start=document.cookie.indexOf(c_name + "=")

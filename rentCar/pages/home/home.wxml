@@ -9,11 +9,11 @@
 		<view class="my-l">
 			<view class="hidden">
 				<image src="../../images/home/addr.png" class='v_m'></image>
-				<text class='v_m'>当前位置：<text>{{address}}</text></text>
+				<view style='font-size: 14px;'>当前位置：</view>
+				<view class="addr" style='font-size: 14px;'>{{address}}</view>
 			</view>
-			
 		</view>
-		<view class="my-r"  bindtap='chooseAddr'><view class="rotate90">></view><text>区域选择</text></view>
+		<view class="my-r"  bindtap='chooseAddr'><image src='../../images/arrow.png' class="rotate90">></image><view>区域选择</view></view>
 	</view>
 
 	<block wx:for="{{type1}}" wx:key="{{item.id}}">

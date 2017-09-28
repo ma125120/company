@@ -45,7 +45,7 @@
           </div>
       </div>
     </div>
-    <div class='more' @click='loadMore'>查看更多</div>
+    <div class='more1' @click='loadMore'>查看更多</div>
 
     <footer class='flex'>
       <router-link to='/' tag='div' class="l" replace><img :src="'./static/imgs/svg/back.svg'" alt='回首页' /><span>回首页</span></router-link>
@@ -64,15 +64,7 @@ export default {
       start:0,
       pageSize:20,
       gift_num:0,
-      info:{
-        "id":1,
-        "us_name":"石伟涵",
-        "number":"58",
-        "us_pic1":"./static/imgs/info/1.png",
-        "us_tiket":"600",
-        "hot":1231,
-        "gift":37
-      },
+      info:{},
       items:[
         {
           icon:'./static/imgs/svg/top2.svg',
@@ -107,8 +99,10 @@ export default {
       .then(res=>{
         let state=res.data.state;
         if(state==0) {
-          t.$weui.alert('投票成功');
-          window.location.reload(true);
+          t.$weui.alert(res.data.data.result);
+          setTimeout(()=>{
+            window.location.reload(true);
+          },1500);
         } else {
           t.$weui.alert('投票失败');
         }
@@ -119,7 +113,7 @@ export default {
       var t=this,
           {start,pageSize,given}=t;
       start=start+pageSize;
-      this.$http.get(`${t.$URL}/pre/getpreListById.htm?user_number=${num_id}&start=${t.start}&pageSize=${t.pageSize}`)
+      this.$http.get(`${t.$URL}/pre/getpreListById.htm?user_number=${t.info.num_id}&start=${t.start}&pageSize=${t.pageSize}`)
       .then(res=>{
         let state=res.data.state;
         if(state==0) {

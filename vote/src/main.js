@@ -14,7 +14,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper);
 
 Vue.prototype.$http = axios;
-Vue.prototype.$URL='https://dev.bchltech.cn';
+Vue.prototype.$URL='http://wang1130.cn';
 Vue.prototype.$AC_ID=10;
 Vue.prototype.$md5=md5;
 Vue.prototype.$weui=weui;

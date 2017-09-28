@@ -36,6 +36,7 @@ header {
 	margin:24px auto;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
 	.col-3 {
 		width:32%;
 		box-sizing: border-box;
@@ -43,13 +44,14 @@ header {
 		border:thin solid #ddd;
 		margin-bottom:12px;
 		img {
-			width:48px;
-			height:48px;
+			width:60%;
+			/*width:48px;
+			height:48px;*/
 		}
 	}
-	.col-3:not(:first-of-type) {
+	/*.col-3:not(:first-of-type) {
 		margin-left:2%;
-	}
+	}*/
 }
 
 .foot {

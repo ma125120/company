@@ -67,82 +67,8 @@ export default {
       count:1,
       active_i:0,
       gift_num:0,
-      info:{
-        "id":1,
-        "us_name":"石伟涵",
-        "number":"58",
-        "us_pic1":"./static/imgs/info/1.png",
-        "us_tiket":"600",
-        "hot":1231,
-        "gift":37,
-        "given":[
-          {
-            name:'拼过',
-            src:'./static/imgs/info/1.png',
-            gift:'气球',
-            time:'2017-08-15 07:36:02'
-          },
-          {
-            name:'苹果',
-            src:'./static/imgs/info/1.png',
-            gift:'气球',
-            time:'2017-08-15 07:36:02'
-          },
-          {
-            name:'钢明123',
-            src:'./static/imgs/info/1.png',
-            gift:'气球',
-            time:'2017-08-15 07:36:02'
-          }
-        ]
-      },
-      gifts:[
-        [
-            {
-              pr_pic:'./static/imgs/gift/1.png',
-              pr_name:'气球',
-              point:1
-            },
-            {
-              pr_pic:'./static/imgs/gift/1.png',
-              pr_name:'蛋糕',
-              point:10
-            },
-            {
-              pr_pic:'./static/imgs/gift/1.png',
-              pr_name:'泰迪熊',
-              point:20
-            }
-        ],[
-            {
-              pr_pic:'./static/imgs/gift/1.png',
-              pr_name:'直升飞机',
-              point:50
-            },
-            {
-              pr_pic:'./static/imgs/gift/1.png',
-              pr_name:'豪华游轮',
-              point:100
-            },
-            {
-              pr_pic:'./static/imgs/gift/1.png',
-              pr_name:'钻石',
-              point:200
-            }
-        ],
-        [
-            {
-              pr_pic:'./static/imgs/gift/1.png',
-              pr_name:'520玫瑰',
-              point:520
-            },
-            {
-              pr_pic:'./static/imgs/gift/1.png',
-              pr_name:'999玫瑰',
-              point:999
-            }
-        ]
-      ]
+      info:{},
+      gifts:[]
     }
   },
   methods:{
@@ -161,7 +87,7 @@ export default {
       let state=res.data.state;
       if(state==0) {
         let gifts=res.data.data.presentList;
-        t.gifts=gifts;console.log(gifts)
+        t.gifts=gifts;
       }
     }).catch(err=>{
       console.log(err);

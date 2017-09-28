@@ -193,8 +193,10 @@ export default {
       .then(res=>{
         let state=res.data.state;
         if(state==0) {
-          t.$weui.alert('投票成功');
-          window.location.reload(true);
+          t.$weui.alert(res.data.data.result);
+          setTimeout(()=>{
+            window.location.reload(true);
+          },1500);
         } else {
           t.$weui.alert('投票失败')
         }

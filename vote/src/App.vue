@@ -27,21 +27,28 @@ export default {
     },
     getLogin() {
       let data={
-        noncestr:'Wm3WZYTPz0wzccnWsss',
-        timestamp:Date.now(),
         url:window.location.href.split("#")[0],
         jsApiList:['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ',
         'onMenuShareWeibo','onMenuShareQZone','chooseWXPay']
       };
-      this.$http.get(`${this.$URL}/iden/getOptions.htm`)
+      this.$http.get(`${this.$URL}/pay/returnPayParameter.htm?url=${data.url}`)
       .then(res=>{
+        var rData=res.data.data;
         wx.config({
           debug:false,
-          appId:res.data.appid,
-          timestamp:data.timestamp,
-          noncestr:data.noncestr,
-          signature:res.data.signature,
+          appId:rData.appId,
+          timestamp:rData.timestamp,
+          noncestr:rData.noncestr,
+          signature:rData.signature,
           jsApiList:data.jsApiList
+        });
+        wx.ready(function(){
+          // wx.checkJsApi({
+          //     jsApiList: data.jsApiList, // 需要检测的JS接口列表，所有JS接口列表见附录2,
+          //     success: function(res) {
+          //         console.log(res);
+          //     }
+          // });
         });
       }).catch(err=>{
         console.log(err);
@@ -50,7 +57,7 @@ export default {
   },
   created() {
     var t=this,{$u:{getCookie,setCookie}}=t;
-    this.getAcId();
+    //this.getAcId();
     this.getLogin();
     if(!getCookie("access")) {
       this.$http.get(`${this.$URL}/iden/setIden.htm`)
@@ -88,7 +95,7 @@ footer {
   bottom:0;
   z-index:9999;
 }
-#app .gift-list {
+#app .more1 {
   margin-bottom:120px;
 }
 .v_m {
