@@ -6,7 +6,8 @@
 	</view>
 
 	<view class="body">
-		<view class="items">
+		<view class="wu" wx:if="{{cars.length==0}}">没有查询到数据！</view>
+		<view class="items" wx:else>
 			<view class="item"  wx:for="{{cars}}" wx:key="{{index}}">
 				<view  data-url="../carInfo/carInfo?id={{item.RUID}}" bindtap='nav'>
 					<image src="{{item.img1}}" mode='widthFix'></image>

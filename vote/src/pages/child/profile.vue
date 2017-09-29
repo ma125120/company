@@ -65,6 +65,7 @@ export default {
       pageSize:20,
       gift_num:0,
       info:{},
+      isLoading:true,
       items:[
         {
           icon:'./static/imgs/svg/top2.svg',
@@ -99,10 +100,11 @@ export default {
       .then(res=>{
         let state=res.data.state;
         if(state==0) {
-          t.$weui.alert(res.data.data.result);
-          setTimeout(()=>{
-            window.location.reload(true);
-          },1500);
+          t.$weui.alert(res.data.data.result,
+            function() {
+              window.location.reload(true);
+            }
+          );
         } else {
           t.$weui.alert('投票失败');
         }
@@ -127,6 +129,9 @@ export default {
     var t=this,
         _id=t.$route.query.id,
         num_id=t.$route.query.num_id;
+    var loading = t.$weui.loading('loading', {
+        className: 'custom-classname'
+    });
     /*获取选手信息*/
     t.$http.get(`${t.$URL}/main/getuser.htm?activity_id=${t.$AC_ID}&user_id=${_id}`)
     .then(res=>{
@@ -136,6 +141,7 @@ export default {
         gift_num=res.data.data.userInfo[1].userPreTotal;
         t.info=info;
         t.gift_num=gift_num;
+        loading.hide();
       }
     });
     /*获取礼物列表*/

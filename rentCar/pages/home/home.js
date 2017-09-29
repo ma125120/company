@@ -1,5 +1,6 @@
 var app=getApp();
-var {req,toast,md5,baseURL:URL,Goto,checkForm,_DEV_}=app;
+var {req,toast,md5,baseURL:URL,Goto,checkForm,_DEV_,uploadFile,
+    downloadUrl}=app;
 
 var splitLeft=function(data) {
   if(data.length>0) {
@@ -15,7 +16,6 @@ var splitLeft=function(data) {
   return data;
 }
   
-
 Page({
   data: {
   	slides:[],
@@ -33,11 +33,31 @@ Page({
       url:`${URL}/Resources/RollsImgs.json`
     }).then(res=>{
       var slides=res.data;
-      slides=slides.map((v=>{
+      /*
+      slides.map((v,i)=>{
+        req({
+          url:`${downloadUrl}${v.src}`
+        },wx.downloadFile).then(res=>{
+          let temp=res.tempFilePath;
+          return req({
+            tempFilePath:temp
+          },wx.saveFile);
+        }).then(res=>{
+          let store=res.savedFilePath;
+          wx.setStorage({
+            key:'slide'+i,
+            data:store
+          });
+        })
+        return v;
+      });*/
+      slides=slides.map((v)=>{
         return `http://szlhzc.bchltech.cn/SZZC/${v.src}`;
-      }));
+      });
+      
       t.setData({slides});
     });
+    /*获取车辆信息*/
     req({
       url:`${URL}/getCarTypeIndex.do`
     }).then(res=>{
@@ -72,6 +92,25 @@ Page({
       app.globalData.latitude = res.latitude;
       app.globalData.longitude = res.longitude;
       t.setData({address:res.name});console.log(res)
+    })
+  },
+  test() {
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        var temp = res.tempFilePaths[0];
+        req({
+          filePath:temp
+        },uploadFile).then(res=>{
+          console.log(app.uploadUrl+res);
+          console.log('图片上传完毕')
+        }).catch(err=>{
+          console.log(err)
+        });
+      }
     })
   }
 })

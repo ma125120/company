@@ -67,6 +67,9 @@ export default {
   },
   created() {
   	var t=this;
+    var loading = t.$weui.loading('loading', {
+        className: 'custom-classname'
+    });
   	/*获取选手信息*/
   	this.$http.get(`${this.$URL}/main/getUserListByOrder.htm?activity_id=${this.$AC_ID}`)
     .then(res=>{
@@ -74,6 +77,7 @@ export default {
       if(state==0) {
         let userList=res.data.data.userList;
         t.userList=userList;
+        loading.hide();
       }
     });
   	/*获取时间*/

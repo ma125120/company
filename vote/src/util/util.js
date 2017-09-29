@@ -51,8 +51,82 @@ if (document.cookie.length>0)
   }
 return "";
 }
-
+function share(data,wx) {
+	var data=data||{};
+	data.title="微信投票";
+	data.imgUrl="http://www.bchltech.cn/rentCar/small.jpg";
+	data.desc="微信投票";
+  /*分享到朋友圈*/
+  wx.onMenuShareTimeline({
+    title: data.title, // 分享标题
+    link: data.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+    imgUrl: data.imgUrl, // 分享图标
+    success: function () { 
+        // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+    }
+  });
+  /*分享给朋友*/
+  wx.onMenuShareAppMessage({
+    title: data.title, // 分享标题
+    desc: data.desc, // 分享描述
+    link: data.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+    imgUrl: data.imgUrl, // 分享图标
+    success: function () { 
+        // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+    }
+  });
+  /*分别到qq*/
+  wx.onMenuShareQQ({
+    title: data.title, // 分享标题
+    desc: data.desc, // 分享描述
+    link: data.link, // 分享链接
+    imgUrl: data.imgUrl, // 分享图标
+    success: function () { 
+       // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+       // 用户取消分享后执行的回调函数
+    }
+  });
+  /*分享到微博*/
+  wx.onMenuShareWeibo({
+    title: data.title, // 分享标题
+    desc: data.desc, // 分享描述
+    link: data.link, // 分享链接
+    imgUrl: data.imgUrl, // 分享图标
+    success: function () { 
+       // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+    }
+  });
+  /*分享到QQ空间*/
+  wx.onMenuShareQZone({
+    title: data.title, // 分享标题
+    desc: data.desc, // 分享描述
+    link: data.link, // 分享链接
+    imgUrl: data.imgUrl, // 分享图标
+    success: function () { 
+       // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+    }
+  });
+}
+u.share=share;
+u.getUrl=function(url) {
+	return `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx320830cb5c7cef67&redirect_uri=${encodeURIComponent(url)}&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect`
+}
 export {
   sort,
   u
 }
+

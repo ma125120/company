@@ -81,6 +81,9 @@ export default {
     var t=this,
         _id=t.$route.query.id,
         num_id=t.$route.query.num_id;
+    var loading = t.$weui.loading('loading', {
+        className: 'custom-classname'
+    });
     /*获取礼物列表*/
     t.$http.get(`${t.$URL}/pre/getpreList.htm`)
     .then(res=>{
@@ -101,6 +104,7 @@ export default {
         gift_num=res.data.data.userInfo[1].userPreTotal;
         t.gift_num=gift_num;
         t.info=info;
+        loading.hide();
       }
     });
 

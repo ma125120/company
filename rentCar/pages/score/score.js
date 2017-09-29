@@ -1,5 +1,5 @@
 var app=getApp();
-var {req,toast,md5,baseURL:URL,Goto,checkForm,_DEV_}=app;
+var {req,toast,md5,baseURL:URL,Goto,checkForm,_DEV_,uploadFile}=app;
 Page({
   data: {
   	score:99,
@@ -68,14 +68,10 @@ Page({
 
     if(t.data.picPath1!="") {
       req({
-        url: 'https://cmcc.bchltech.cn/cmcc/upImg.htm',
         filePath: t.data.picPath1,
-        name: 'file1',
-        formData:{},
-      },wx.uploadFile).then(res=>{
-        let sp1=res.data.split('\"');
-        if(sp1[5].indexOf("http")!=-1) {
-          sp[0]=sp1[5].replace("http","https");
+      },uploadFile).then(res=>{
+        if(res) {
+          sp[0]=app.uploadUrl+res;
           index=index+1;
         } else {
           toast("图片上传失败，请重试！");
@@ -92,7 +88,7 @@ Page({
             header:{
               Cookie:app.globalData.head
             }
-          })
+          });
         }
       }).then(res=>{
         if(res.data.code==4280) {
@@ -112,14 +108,10 @@ Page({
     
     if(t.data.picPath2!="") {
       req({
-        url: 'https://cmcc.bchltech.cn/cmcc/upImg.htm',
         filePath: t.data.picPath2,
-        name: 'file2',
-        formData:{},
-      },wx.uploadFile).then(res=>{
-        let sp2=res.data.split('\"');
-        if(sp2[5].indexOf("http")!=-1) {
-          sp[1]=sp2[5].replace("http","https");
+      },uploadFile).then(res=>{
+        if(res) {
+          sp[1]=app.uploadUrl+res;
           index=index+1;
         } else {
           toast("图片上传失败，请重试！");
@@ -156,14 +148,10 @@ Page({
     
     if(t.data.picPath3!="") {
       req({
-        url: 'https://cmcc.bchltech.cn/cmcc/upImg.htm',
         filePath: t.data.picPath3,
-        name: 'file3',
-        formData:{},
-      },wx.uploadFile).then(res=>{
-        let sp3=res.data.split('\"');
-        if(sp3[5].indexOf("http")!=-1) {
-          sp[2]=sp3[5].replace("http","https");
+      },uploadFile).then(res=>{
+        if(res) {
+          sp[2]=app.uploadUrl+res;
           index=index+1;
         } else {
           toast("图片上传失败，请重试！");

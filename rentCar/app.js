@@ -1,6 +1,7 @@
 //app.js
 import {req,toast,sort,checkForm,toDate,filter,checkSpace} from './utils/util.js'
 import md5 from './utils/md5.js';
+import uploadFile from './utils/upload.js'
 import {getCalendar} from './utils/date.js'
 var getConf=function(data) {
   var arr=data.split("\n");
@@ -8,6 +9,10 @@ var getConf=function(data) {
 
 App({
   getCalendar,
+  uploadFile,
+  uploadUrl:'https://szzclh.oss-cn-beijing.aliyuncs.com/',
+  downloadUrl:'http://szlhzc.bchltech.cn/SZZC/',
+  baseURL:'https://szlhzc.bchltech.cn/SZZC/',
   onLaunch: function() {
     var t=this;
     wx.getLocation({
@@ -35,7 +40,7 @@ App({
   },
   getLogin(fnFail,fn) {
     var t=this;
-    if(!t.globalData.hasUser||t.globalData.hasUser) {
+    if(!t.globalData.hasUser) {
       req({},wx.login)
       .then(res=>{
         return req({
@@ -61,7 +66,7 @@ App({
     
   },
   _DEV_:false,
-  baseURL:'https://szlhzc.bchltech.cn/SZZC/',
+  
   getUserInfo: function(cb) {
     var that = this
     if (this.globalData.userInfo) {

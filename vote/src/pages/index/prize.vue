@@ -68,12 +68,16 @@ export default {
   },
   created(){
     var t=this;
+    var loading = t.$weui.loading('loading', {
+        className: 'custom-classname'
+    });
     this.$http.get(`${t.$URL}/present/getpre.htm`)
     .then(res=>{
         let state=res.data.state;
         if(state==0) {
             let prizes=res.data.data.presentList;
             t.prizes=prizes;
+            loading.hide();
         }
     })
     

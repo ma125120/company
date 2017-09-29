@@ -1,5 +1,6 @@
 <scroll-view scroll-y="true" scroll-top='0' class='main'>
-	<block wx:for="{{myCars}}" wx:key="{{item.id}}">
+	<view class="wu" wx:if="{{myCars.length==0}}">没有查询到数据！</view>
+	<view wx:for="{{myCars}}" wx:key="{{item.id}}">
 		<view class="item">
 			<view class="l">
 				<image src='{{item.img1}}' mode='widthFix'></image>
@@ -13,7 +14,7 @@
 			<navigator url='../myCalendar/myCalendar?id={{item.RUID}}' class="r"><text class="gray">出租信息</text></navigator>
 		</view>
 		<view class="bor_gray"></view>
-	</block>
+	</view>
 	
 </scroll-view>
 

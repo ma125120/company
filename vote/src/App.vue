@@ -30,7 +30,7 @@ export default {
         url:window.location.href.split("#")[0],
         jsApiList:['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ',
         'onMenuShareWeibo','onMenuShareQZone','chooseWXPay']
-      };
+      },t=this;
       this.$http.get(`${this.$URL}/pay/returnPayParameter.htm?url=${data.url}`)
       .then(res=>{
         var rData=res.data.data;
@@ -43,12 +43,10 @@ export default {
           jsApiList:data.jsApiList
         });
         wx.ready(function(){
-          // wx.checkJsApi({
-          //     jsApiList: data.jsApiList, // 需要检测的JS接口列表，所有JS接口列表见附录2,
-          //     success: function(res) {
-          //         console.log(res);
-          //     }
-          // });
+          var shareObj={
+            link:window.window.location.href
+          };
+          t.$u.share(shareObj,wx);
         });
       }).catch(err=>{
         console.log(err);

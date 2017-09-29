@@ -193,10 +193,11 @@ export default {
       .then(res=>{
         let state=res.data.state;
         if(state==0) {
-          t.$weui.alert(res.data.data.result);
-          setTimeout(()=>{
-            window.location.reload(true);
-          },1500);
+          t.$weui.alert(res.data.data.result,
+            function() {
+              window.location.reload(true);
+            }
+          );
         } else {
           t.$weui.alert('投票失败')
         }
@@ -252,6 +253,9 @@ export default {
   },
   created(){
     var t=this;
+    var loading = t.$weui.loading('loading', {
+        className: 'custom-classname'
+    });
     document.querySelectorAll("title")[0].innerText=`投票活动`;
     /*获取活动信息*/
     this.$http.get(`${this.$URL}/main/getmain.htm?activity_id=${this.$AC_ID}`)
@@ -277,6 +281,7 @@ export default {
       if(state==0) {
         let userList=res.data.data.userList;
         t.userList=userList;
+        loading.hide();
       }
     }).catch(err=>{
       console.log(err);

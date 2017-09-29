@@ -1,6 +1,6 @@
 var app=getApp();
 var { req , toast , md5 , baseURL : URL ,
-		Goto , checkForm , _DEV_ , checkSpace }=app;
+		Goto , checkForm , _DEV_ , checkSpace , uploadFile }=app;
 Page({
   data: {
   	notices:['1.公司注册需上传营业执照照片，个体车辆上传行驶证照片；',
@@ -97,48 +97,36 @@ Page({
     t.setData({ disable:true });
     //console.log(r);return false;
     var up1=req({
-      url: 'https://cmcc.bchltech.cn/cmcc/upImg.htm',
       filePath: t.data.picPath1,
-      name: 'file1',
-      formData:{},
-    },wx.uploadFile).then(res=>{
-      let sp1=res.data.split('\"');
-      if(sp1[5].indexOf("http")!=-1) {
-        sp[0]=sp1[5];
+    },uploadFile).then(res=>{
+      if(res) {
+        sp[0]=app.uploadUrl+res;
         return req({
-                url: 'https://cmcc.bchltech.cn/cmcc/upImg.htm',
                 filePath: t.data.picPath2,
-                name: 'file2',
-                formData:{},
-              },wx.uploadFile);
+              },uploadFile);
       } else {
         toast("图片上传失败，请重试！");
         t.setData({ disable:false });
       }
     }).then(res=>{
-      let sp2=res.data.split('\"');
-      if(sp2[5].indexOf("http")!=-1) {
-        sp[1]=sp2[5];
+      if(res) {
+        sp[1]=app.uploadUrl+res;
         return req({
-                url: 'https://cmcc.bchltech.cn/cmcc/upImg.htm',
                 filePath: t.data.picPath3,
-                name: 'file3',
-                formData:{},
-              },wx.uploadFile);
+              },uploadFile);
       } else {
         toast("图片上传失败，请重试！");
         t.setData({ disable:false });
       }
     }).then(res=>{
-      let sp3=res.data.split('\"');
-      if(sp3[5].indexOf("http")!=-1) {
-        sp[2]=sp3[5];
+      if(res) {
+        sp[2]=app.uploadUrl+res;
         var data1=Object.assign({},data,{
           Business_lbs_lat:app.globalData.latitude,
           Business_lbs_lon:app.globalData.longitude,
-          facade:sp[0].replace('http','https'),
-          Business_license:sp[1].replace('http','https'),
-          Person_ID_front:sp[2].replace('http','https')
+          facade:sp[0],
+          Business_license:sp[1],
+          Person_ID_front:sp[2]
         });
         /*提交表单*/
         return req({
