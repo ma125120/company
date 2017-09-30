@@ -2,7 +2,7 @@ var app=getApp();
 var {req,toast,md5,baseURL:URL,Goto,checkForm,_DEV_}=app;
 Page({
   data: {
-  	slides:['../../images/is_host/slide0.jpg'],
+  	slides:'',
   	modules:[{
   		title:'上传车辆信息',
       url:'../uploadCar/uploadCar'
@@ -26,7 +26,7 @@ Page({
     var t=this;
     t.setData({
       //notices:app.globalData.help.note_host.split('\n'),
-      slides:[app.globalData.help.back]
+      slides:app.globalData.help.back
     });
   },
   goTo(e) {

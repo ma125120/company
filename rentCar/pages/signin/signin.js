@@ -17,7 +17,8 @@ Page({
     num:'发送验证码',
     send:false,
     _num:60,
-    _tId:''
+    _tId:'',
+    getCode:false
   },
   onLoad: function (options) {
   	app.check();
@@ -47,6 +48,7 @@ Page({
   getCode() {
     var t=this,tel=t.data.tel,
         _num=t.data._num,_tId=t.data._tId;
+    t.setData({getCode:true});
     if(!/^\d{11}$/.test(tel)) {
       toast('手机号格式不符合！');
       return false;
@@ -76,8 +78,12 @@ Page({
     var t=this,
         data=e.detail.value,sp=[];//wxregist
     var f=checkSpace(data);
-
-    if(f||t.data.picPath1==""||t.data.picPath2==""||t.data.picPath3=="") {
+    
+    if(!t.data.getCode) {
+      toast('请先获取验证码');
+      return false;
+    }
+    if(f||t.data.picPath2==""||t.data.picPath3=="") {
       toast('必填参数有空，请重新填写');
       return false;
     }
@@ -97,7 +103,7 @@ Page({
     t.setData({ disable:true });
     //console.log(r);return false;
     var up1=req({
-      filePath: t.data.picPath1,
+      filePath: t.data.picPath1||t.data.picPath2,
     },uploadFile).then(res=>{
       if(res) {
         sp[0]=app.uploadUrl+res;
@@ -122,8 +128,8 @@ Page({
       if(res) {
         sp[2]=app.uploadUrl+res;
         var data1=Object.assign({},data,{
-          Business_lbs_lat:app.globalData.latitude,
-          Business_lbs_lon:app.globalData.longitude,
+          Business_lbs_lat:app.globalData.latitude||0,
+          Business_lbs_lon:app.globalData.longitude||0,
           facade:sp[0],
           Business_license:sp[1],
           Person_ID_front:sp[2]

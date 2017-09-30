@@ -55,6 +55,13 @@
 	margin-right:5px;
 	border-radius: 10px;
 }
+.wrap-img {
+	height:122px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/*background: #f0f0f0;*/
+}
 /* .distance {
 	position: absolute;
 	z-index:99;

@@ -1,9 +1,5 @@
 <scroll-view scroll-y="true" scroll-top='0' class='main'>
-	<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
-		<swiper-item wx:for="{{slides}}" wx:key="{{index}}">
-			<image src="{{item}}" class='s_img'></image>
-		</swiper-item>
-	</swiper>
+	<image src="{{slides}}" class='s_img'  mode='widthFix'></image>
 
 	<view class="content">
 		<view class="body">

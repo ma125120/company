@@ -104,10 +104,27 @@ Page({
   },
   send_form(e) {
     var data=e.detail.value,t=this,sp=[];
-    data=Object.assign({},t.data.info,data);
+    data=Object.assign({},t.data.info,data,{carType:t.data.all[t.data.ai].id,type:t.data.types[t.data.ti]});
     var f=checkSpace(data);
     if(f||t.data.picPath1==""||t.data.picPath2=="") {
       toast('必填参数有空，请重新填写');
+      return false;
+    }
+    var r=checkForm(data,{
+      name:'seat',
+      reg:/^\d{1,}$/,
+      msg:'座位必须为数字'
+    },{
+      name:'price',
+      reg:/^\d{1,}$/,
+      msg:'出租价格必须为数字'
+    },{
+      name:'carType',
+      reg:/^\d{1,}$/,
+      msg:'车型必须为数字'
+    });
+    if(r.msg) {
+      toast(r.msg);
       return false;
     }
     t.setData({ disable:true });
@@ -129,7 +146,7 @@ Page({
           if(res) {
             sp[1]=app.uploadUrl+res;
             var imgs=sp.join(",");
-            var data1=Object.assign({},data,{imgs:imgs,carType:t.data.all[t.data.ai].id,type:t.data.types[t.data.ti]});
+            var data1=Object.assign({},data,{imgs:imgs});
             return req({
                     url:`${URL}/updateMyRentalCar.do`,
                     header:{
@@ -190,7 +207,7 @@ Page({
         });
       }
     } else {
-      if(res) {
+      if(t.data.imgs[1]!=t.data.picPath2) {
         req({
           filePath: t.data.picPath2,
         },uploadFile).then(res=>{

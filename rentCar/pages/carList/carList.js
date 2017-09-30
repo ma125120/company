@@ -11,10 +11,8 @@ Page({
   onLoad: function (options) {
   	var t=this;
     var carIndex=options.carIndex||1;
-  	app.check();wx.showLoading({title:'正在加载中！'});
-    t.setData({
-      my_img:app.globalData.help.front
-    });
+  	app.check();
+    wx.showLoading({title:'正在加载中！'});
   	if(!_DEV_) {
   		req({
   			url:`${URL}/getRentals.do?carType=${carIndex}&lat=${app.globalData.latitude}&lon=${app.globalData.longitude}&dist=100`,
@@ -23,7 +21,9 @@ Page({
         },
   		}).then(res=>{
   			var cars=res.data;
-           
+        t.setData({
+            my_img:app.globalData.help.front
+        });
         if(cars.length==0) {
           return req({
             url:`${URL}/getRentals.do?carType=${carIndex}&lat=${app.globalData.latitude}&lon=${app.globalData.longitude}&dist=10000`,
@@ -48,7 +48,9 @@ Page({
             return v;
           });
           sort(cars,'distance',true);
-          t.setData({ cars });wx.hideLoading();
+          t.setData({ cars });
+          
+          wx.hideLoading();
         }
       }).catch(err=>{
         console.log(err)

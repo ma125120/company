@@ -3,24 +3,23 @@
 		<view class="body">
 			<view class="page-main">
 				<view class="title">信息认证:</view>
-				<view class="pic">
-					<view>
-						<view class="none-pic" wx:if="{{!picPath1}}" bindtap='chooseImg' data-i="1">+</view>
-						<image class="none-pic" wx:else bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
-						<view>门面照片</view><view>（必填）</view>
-					</view>
+				<view class="pic">	
 					<view>
 						<view class="none-pic" wx:if="{{!picPath2}}" bindtap='chooseImg' data-i="2">+</view>
 						<image class="none-pic" wx:else bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
-						<view>营业执照</view><view>（必填）</view>
+						<view>证照</view><view>（必填）</view>
 					</view><view>
 						<view class="none-pic" wx:if="{{!picPath3}}" bindtap='chooseImg' data-i="3">+</view>
 						<image class="none-pic" wx:else bindtap='chooseImg' data-i="3" src='{{picPath3}}'></image>
 						<view>身份证正面</view><view>（必填）</view>
 					</view>
+					<view>
+						<view class="none-pic" wx:if="{{!picPath1}}" bindtap='chooseImg' data-i="1">+</view>
+						<image class="none-pic" wx:else bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
+						<view>门面照片</view><view>（选填）</view>
+					</view>
 				</view>
-				
-				
+
 				<view class="title title1">填写信息:</view>
 				<input type="text" class='input' placeholder="姓名" name="Person_liable" placeholder-class='place' />
 				<input type="text" class='input' placeholder="公司或店面名称" name="name" placeholder-class='place' />

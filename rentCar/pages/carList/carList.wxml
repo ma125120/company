@@ -10,7 +10,9 @@
 		<view class="items" wx:else>
 			<view class="item"  wx:for="{{cars}}" wx:key="{{index}}">
 				<view  data-url="../carInfo/carInfo?id={{item.RUID}}" bindtap='nav'>
-					<image src="{{item.img1}}" mode='widthFix'></image>
+					<view class="wrap-img">
+						<image src="{{item.img1}}" mode='widthFix' class='v_m'></image>
+					</view>
 					<view class="title">{{item.name}}</view>
 					<view class="bottom">
 						<view class="btn">{{item.seat}}座</view>
