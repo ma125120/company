@@ -1,0 +1,80 @@
+header {
+  background: #F9F9F9;
+  min-height: 120px;
+  .title {
+    font-weight: bold;
+    line-height: 60px;
+    font-size:27rem;
+    .img {
+      width:36px;
+      height:36px;
+      border-radius: 50%;
+    }
+  }
+  .header-body {
+    line-height: 24px;
+    padding:1rem 0;
+    border-bottom: thin solid #ccc;
+    .col-4 {
+      width:24%;
+      .svg {
+        vertical-align: text-top;
+      }
+      .num {
+        vertical-align: top;
+      }
+    }
+    .svg {
+      width:14px;
+      height:14px;
+    }
+  }
+}
+
+.page-body,
+.gift-list {
+  width:92%;
+  margin:0 auto;
+}
+.intro {
+  margin:5px 0;
+}
+.title1 {
+  text-align: left;
+  line-height:36px;
+  font-weight: bold;
+  font-size:20rem;
+}
+.profile-img {
+  width:100%;
+  height:auto;
+}
+.gift-list {
+  text-align: left;
+  .title1 {
+    background: #F9F9F9;
+    border-top:thin dashed #ccc;
+    border-bottom: thin solid #ccc;
+    margin:12px 0;
+  }
+  .item {
+    padding:8px 0;
+    display: flex;
+  }
+  .left img {
+    width:48px;
+    height:48px;
+  }
+  .right {
+    padding-left:6px;
+    .top{
+      font-size:16rem;
+      padding:3px 0 6px 0;
+    }
+    .bot {
+      font-size:12rem;
+      padding:3px 0 6px 0;
+      color:gray;
+    }
+  }
+}

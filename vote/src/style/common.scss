@@ -1,0 +1,19 @@
+.header-body {
+    line-height: 24px;
+    padding:12px 0;
+    border-top: thin dashed #ccc;
+    border-bottom: thin solid #ccc;
+    .col-4 {
+      width:24%;
+      .svg {
+        vertical-align: text-top;
+      }
+      .num {
+        vertical-align: top;
+      }
+    }
+    .svg {
+      width:14px;
+      height:14px;
+    }
+}
