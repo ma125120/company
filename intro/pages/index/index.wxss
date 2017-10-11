@@ -1,0 +1,76 @@
+
+image {
+	width:100%;
+}
+.s_img {
+	width:100%;
+	height:150px;
+}
+.page-head {
+	background: #fff;
+	display: flex;
+	justify-content: space-around;
+	padding:12px 0;
+}
+.flex {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.page-head .item {
+	width:20%;
+}
+.page-head image {
+	width:54px;
+	height:54px;
+}
+/*功能区*/
+.func {
+	background: #F2F2F2;
+	color:#797979;
+	padding:14px 0;
+}
+.titles {
+	font-size:15px;
+	margin-bottom: 16px;
+}
+.titles:before {
+	content:'';
+	display: inline-block;
+	vertical-align: middle;
+	width:45px;
+	height:1px;
+	background: #797979;
+	margin-right:10px;
+}
+.titles:after {
+	content:'';
+	display: inline-block;
+	vertical-align: middle;
+	width:45px;
+	height:1px;
+	background: #797979;
+	margin-left:10px;
+}
+.img-title {
+	text-align: center;
+}
+.img-title image {
+	width:48px;
+	height:48px;
+}
+.text {
+	text-align: left;
+	font-size:12px;
+}
+
+.wrap .item {
+	border:thin solid #BCBCBC;
+	border-radius: 10px;
+	width:27%;
+	margin-top:5px;
+	padding:10px 5px ;
+}
+.img-title1 {
+	padding:5px 0;
+}

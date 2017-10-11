@@ -1,0 +1,8 @@
+<view class="wrap">
+	<view class="item" wx:for="{{cases}}" wx:key="{{index}}">
+		<image src="{{item.src}}"></image>
+		<view class="title">{{item.title}}</view>
+	</view>
+</view>
+
+

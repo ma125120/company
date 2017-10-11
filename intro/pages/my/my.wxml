@@ -1,0 +1,22 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="head">
+		<image src="{{userInfo.avatarUrl}}"></image>
+		<view class='text'>{{userInfo.nickName}}</view>
+	</view>
+	<view class="block_gray"></view>
+
+	<view class="body">
+		<block wx:for="{{menus}}" wx:key="{{index}}">
+			<navigator url='{{item.url}}' class="item" wx:if="{{item.url}}">
+				<view class="left">{{item.title}}</view>
+				<view class="right">></view>
+			</navigator>
+			<view  class="item" wx:else bindtap="active">
+				<view class="left">{{item.title}}</view>
+				<view class="right">></view>
+			</view>
+		</block>
+		
+	</view>
+</scroll-view>
+

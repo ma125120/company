@@ -1,0 +1,31 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
+		<swiper-item wx:for="{{slides}}" wx:key="{{index}}">
+			<image src="{{'../../images/home/'+item}}"  class='s_img'></image>
+		</swiper-item>
+	</swiper>
+	<view class="page-head">
+		<view class="item" wx:for="{{top}}" wx:key="{{index}}">
+			<image class='top-img' src="{{item.src}}"></image>
+			<view class="head-title">{{item.title}}</view>
+		</view>
+	</view>
+
+	<view class="func">
+		<view class="titles">功能特性</view>
+		<view class="wrap flex">
+			<view class="item"  wx:for="{{funcs}}" wx:key="{{index}}">
+				<view class="img-title">
+					<image src="{{item.src}}"></image>
+					<view class="img-title1">{{item.title}}</view>
+				</view>
+				<view class='text'>{{item.text}}</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="scene">
+		<view class="titles">应用场景</view>
+	</view>
+</scroll-view>
+
