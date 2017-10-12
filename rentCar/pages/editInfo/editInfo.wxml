@@ -1,4 +1,18 @@
-<scroll-view scroll-y="true" scroll-top='0' class='main'>
+<import src="../pic.wxml"/>
+
+<view class="cropper-wrapper" wx:if="{{cutting}}">
+    <template is="weCropper" data="{{...cropperOpt}}"/>
+    <view class="cropper-buttons">
+        <view
+                class="exit"
+                bindtap="exit">取消</view>
+        <view
+                class="sure"
+                bindtap="sure">确定</view>
+    </view>
+</view>
+
+<scroll-view scroll-y="true" scroll-top='0' class='main' wx:else>
 	<form  bindsubmit='send_form'>
 		<view class="body">
 			<view class="page-main">
@@ -33,9 +47,17 @@
 
 				<view class="title">车辆照片（点击修改）:</view>
 				<view class="none-pic" wx:if="{{!picPath1}}" bindtap='chooseImg' data-i="1">+</view>
-				<image class="none-pic" wx:else bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
+				<view class="cut-view" wx:else >
+					<image class="none-pic" bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
+					<!-- <view bindtap="cutPic" data-i="1" class='cut-img'>裁剪图片</view> -->
+				</view>
+				
 				<view class="none-pic" wx:if="{{!picPath2}}" bindtap='chooseImg' data-i="2">+</view>
-				<image class="none-pic" wx:else bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
+				<view class="cut-view" wx:else >
+					<image class="none-pic" bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
+					<!-- <view bindtap="cutPic" data-i="2" class='cut-img'>裁剪图片</view> -->
+				</view>
+				
 			</view>
 			
 

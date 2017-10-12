@@ -1,3 +1,17 @@
+<import src="../pic.wxml"/>
+
+<view class="cropper-wrapper" wx:if="{{cutting}}">
+    <template is="weCropper" data="{{...cropperOpt}}"/>
+    <view class="cropper-buttons">
+        <view
+                class="exit"
+                bindtap="exit">取消</view>
+        <view
+                class="sure"
+                bindtap="sure">确定</view>
+    </view>
+</view>
+
 <scroll-view scroll-y="true" scroll-top='0' class='main'>
 	<form  bindsubmit='send_form'>
 		<view class="body">
@@ -15,11 +29,19 @@
 				<input type="text" class='input' placeholder="备注" name="note" placeholder-class='place' />
 
 				<view class="title">上传照片:</view>
-				<view class="none-pic" wx:if="{{!picPath1}}" bindtap='chooseImg' data-i="1"><view class='add'>+</view><image src='../../images/bg1.jpg' mode='aspectFit'></image></view>
-				<image class="none-pic" wx:else bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
-				<view class="none-pic" wx:if="{{!picPath2}}" bindtap='chooseImg' data-i="2"><view class='add'>+</view><image src='../../images/bg2.jpg' mode='aspectFit'></image></view>
-				<image class="none-pic" wx:else bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
-				<view style="font-size:12px;" wx:if="{{!picPath1||!picPath2}}">*请点击图片上传您的照片</view>
+				<view class="none-pic" wx:if="{{!picPath1}}" bindtap='chooseImg' data-i="1"><image src='../../images/bg1.jpg' mode='aspectFit'></image></view>
+				<view class="cut-view" wx:else >
+					<image class="none-pic" bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
+					<view bindtap="cutPic" data-i="1" class='cut-img'>裁剪图片</view>
+				</view>
+				
+				<view class="none-pic" wx:if="{{!picPath2}}" bindtap='chooseImg' data-i="2"><image src='../../images/bg2.jpg' mode='aspectFit'></image></view>
+				<view class="cut-view" wx:else >
+					<image class="none-pic" bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
+					<view bindtap="cutPic" data-i="2" class='cut-img'>裁剪图片</view>
+				</view>
+				
+				<view style="font-size:12px;padding:5px 0" wx:if="{{!picPath1||!picPath2}}">*请点击图片按示例样式上传照片</view>
 			</view>
 			<view class="foot">
 				<button form-type='submit' class='btn' disabled="{{disable}}">确认提交</button>
@@ -28,4 +50,5 @@
 	</form>
 	
 </scroll-view>
+
 

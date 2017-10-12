@@ -1,6 +1,5 @@
 swiper {
 	height:180px;
-	margin-top:-14px;
 }
 image {
 	width:100%;

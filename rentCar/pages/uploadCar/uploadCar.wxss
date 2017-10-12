@@ -97,7 +97,6 @@ view.none-pic image,
 .my-flex .input {
 	flex:1;
 }
-
 .add {
 	position: absolute;
 	top:50%;
@@ -105,4 +104,42 @@ view.none-pic image,
 	color:#fff;
 	z-index:100;
 	transform: translate(-50%,-50%);
+}
+
+.cut-view {
+	display: inline-block;
+	width:48%;
+	vertical-align: middle;
+	text-align: center;
+}
+.cut-img {
+	padding:10px 0;
+	font-size:16px;
+}
+
+.cropper-wrapper {
+	position: fixed;
+	top:0;left:0;bottom:0;right:0;
+	width:100vw;
+	height:100vh;
+	z-index:1000;
+}
+.sure,
+.exit {
+	position: fixed;
+	bottom:0;
+	line-height:120rpx;
+	background: red;
+	text-align: center;
+	color:#fff;
+	font-size:20px;
+	z-index:2000;
+}
+.exit {
+	left:0;
+	width:50%;
+}
+.sure {
+	right:0;
+	width:50%;
 }

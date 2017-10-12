@@ -18,13 +18,40 @@ Page({
     send:false,
     _num:60,
     _tId:'',
-    getCode:false
+    getCode:false,
+    address:'',
+    lat:0,
+    lon:0,
+    addr_code:0
+  },
+  chooseAddr() {
+    var t=this;
+    req({},wx.chooseLocation)
+    .then(res=>{
+      t.setData({address:res.name,
+        lat:res.latitude,
+        lon:res.longitude
+      });
+      req({
+          url:`${URL}/getAddrInfo.do?location=${res.latitude},${res.longitude}`
+      }).then(res=>{
+          t.setData({ 
+            addr_code:res.data.result.addressComponent.adcode
+          });
+      });
+    }).catch(err=>{
+      console.log(err);
+    })
   },
   onLoad: function (options) {
   	app.check();
     var t=this,
         {to='../is_host/is_host'}=options;
-    t.setData({ to });
+    t.setData({ to,address:app.globalData.addr ,
+      lat:app.globalData.latitude,
+      lon:app.globalData.longitude,
+      addr_code:app.globalData.addr_code
+    });
   },
   chooseImg:function(e) {
     var t=this,
@@ -77,6 +104,12 @@ Page({
   send_form(e) {
     var t=this,
         data=e.detail.value,sp=[];//wxregist
+    data=Object.assign({},data,{
+          Business_lbs_lat:t.data.lat,
+          Business_lbs_lon:t.data.lon,
+          Business_addr:t.data.address,
+          addr_code:t.data.addr_code
+    });
     var f=checkSpace(data);
     
     if(!t.data.getCode) {
@@ -128,8 +161,6 @@ Page({
       if(res) {
         sp[2]=app.uploadUrl+res;
         var data1=Object.assign({},data,{
-          Business_lbs_lat:app.globalData.latitude||0,
-          Business_lbs_lon:app.globalData.longitude||0,
           facade:sp[0],
           Business_license:sp[1],
           Person_ID_front:sp[2]

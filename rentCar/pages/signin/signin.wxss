@@ -27,6 +27,10 @@ form {
 	padding-left:16px;
 	margin-bottom: 24px;
 	border-radius: 5px;
+	color:#222;
+}
+view.input {
+	line-height:36px;
 }
 .place {
 	color:#bbb;
@@ -93,4 +97,8 @@ view.none-pic {
 }
 .black {
 	color:#000;
+}
+.g {
+	color:#888;
+	font-size:12px;
 }

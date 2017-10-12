@@ -15,7 +15,7 @@ Page({
     wx.showLoading({title:'正在加载中！'});
   	if(!_DEV_) {
   		req({
-  			url:`${URL}/getRentals.do?carType=${carIndex}&lat=${app.globalData.latitude}&lon=${app.globalData.longitude}&dist=100`,
+  			url:`${URL}/getRentals.do?carType=${carIndex}&lat=${app.globalData.latitude}&lon=${app.globalData.longitude}&dist=100000`,
         header:{
           Cookie:app.globalData.head
         },
@@ -26,7 +26,7 @@ Page({
         });
         if(cars.length==0) {
           return req({
-            url:`${URL}/getRentals.do?carType=${carIndex}&lat=${app.globalData.latitude}&lon=${app.globalData.longitude}&dist=10000`,
+            url:`${URL}/getRentals.do?carType=${carIndex}&lat=${app.globalData.latitude}&lon=${app.globalData.longitude}&dist=100000`,
             header:{
               Cookie:app.globalData.head
             },

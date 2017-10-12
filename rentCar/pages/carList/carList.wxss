@@ -27,7 +27,7 @@
 }
 .item {
 	background: #fff;
-	width:46%;
+	width:48%;
 	margin-bottom:10px;
 	position: relative;
 	z-index:1;

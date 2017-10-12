@@ -3,13 +3,15 @@ import {req,toast,sort,checkForm,toDate,filter,checkSpace} from './utils/util.js
 import md5 from './utils/md5.js';
 import uploadFile from './utils/upload.js'
 import {getCalendar} from './utils/date.js'
+import weCropper from './utils/pic.js'
 var getConf=function(data) {
   var arr=data.split("\n");
 }
-
+const _URL='https://szlhzc.bchltech.cn/SZZC/';
 App({
   getCalendar,
   uploadFile,
+  weCropper,
   uploadUrl:'https://szzclh.oss-cn-beijing.aliyuncs.com/',
   downloadUrl:'http://szlhzc.bchltech.cn/SZZC/',
   baseURL:'https://szlhzc.bchltech.cn/SZZC/',
@@ -24,6 +26,8 @@ App({
           url:`${t.baseURL}/getAddrInfo.do?location=${res.latitude},${res.longitude}`
         }).then(res=>{
           t.globalData.address=res.data.result.addressComponent.province+res.data.result.addressComponent.city;
+          t.globalData.addr=res.data.result.formatted_address;
+          t.globalData.addr_code=res.data.result.addressComponent.adcode;
         });
       }
     });
@@ -47,18 +51,34 @@ App({
           url: `${t.baseURL}/wxlogin.do?code=${res.code}`
         });
       }).then(res=>{
+        //res.data.code=4280
+        var head=res.header['Set-Cookie'];
+        wx.setStorageSync('head',head);
+        t.globalData.head=head;
         //获取用户注册信息;
         if(res.data.code==4280) {
           t.globalData.hasUser=true;
           t.globalData.user=res.data.data;
+          req({
+            url:`${_URL}/getIntegral.do`,
+            header:{
+              Cookie:t.globalData.head
+            }
+          }).then(res=>{
+            //res.data.code=4280;res.data.data=0
+            if(res.data.code==4280&&res.data.data==0) {
+              toast('积分为0');
+            }
+          }).catch(err=>{
+            console.log(err);
+          });
           fn&&fn();
         } else {
           t.globalData.hasUser=false;
           fnFail&&fnFail();
         }
-        var head=res.header['Set-Cookie'];
-        wx.setStorageSync('head',head);
-        t.globalData.head=head;
+        
+
       }).catch(err=>{
         console.log(err);
       });
@@ -133,6 +153,7 @@ App({
         }
       }).then(res=>{
         var a=res.data.data;
+        //a=a.filter(v=>v.name!='更多');
         wx.setStorage({
           key:'all',
           data:a
@@ -142,7 +163,7 @@ App({
         console.log(err);
       })
     } else {
-      p.setData({ all:wx.getStorageSync('all') });
+      p.setData({ all:wx.getStorageSync('all')});
     }
   },
   globalData: {

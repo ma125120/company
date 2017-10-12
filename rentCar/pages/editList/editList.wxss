@@ -18,7 +18,7 @@ image {
 .item {
 	display: flex;
 	flex-wrap: wrap;
-	padding:16rpx 32rpx 9rpx 24rpx;
+	padding:16rpx 32rpx 16rpx 24rpx;
   align-items:center;
 
 }

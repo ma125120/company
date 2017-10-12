@@ -52,7 +52,7 @@
           <div class="r">数量：<span @click='del' class='sys'>-</span><input type="text" v-model='count' class='input' /><span @click='add' class='sys'>+</span><!-- <span id='i_a'>></span> --></div>
         </div>
         <div class="pay">
-          <p id='pay_btn' @click='send'>微信支付</p>
+          <p id='pay_btn' @click='send' :disabled="dis">微信支付</p>
         </div>
       </div>
     </div> 
@@ -70,7 +70,8 @@ export default {
       info:{},
       gifts:[],
       gifting:null,
-      final:null
+      final:null,
+      dis:false
     }
   },
   methods:{
@@ -111,11 +112,14 @@ export default {
         token:token
       };
       t.final=final;
+      t.dis=true;
       t.$http.get(`${t.$URL}/pay/getorder.htm`,{ params:final })
       .then(res=>{
         console.log(res.data);
+        t.dis=false;
       }).catch(err=>{
         console.log(err);
+        t.dis=false;
       });
     }
   },

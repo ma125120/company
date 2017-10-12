@@ -1,4 +1,9 @@
 var app=getApp();
+import weCropper from '../util/pic.js'
+const device = wx.getSystemInfoSync();
+const width = device.windowWidth;
+const height = device.windowHeight - 50;
+
 var {req,toast,md5,baseURL:URL,Goto,checkForm,_DEV_, checkSpace ,toImg,uploadFile}=app;
 Page({
   data: {
@@ -9,13 +14,85 @@ Page({
     disable:false,
     types:['自驾','可配司机','配驾'],
     ti:0,
-    notices:[]
+    notices:[],
+    cutting:false,
+    cutImg:0,
+    cropperOpt: {
+      id: 'cropper',
+      width,
+      height,
+      scale: 2.5,
+      zoom: 8,
+      cut: {
+        x: (width - 300) / 2,
+        y: (height - 300) / 2,
+        width: 300,
+        height: 300
+      }
+    }
+  },
+  touchStart (e) {
+    this.wecropper.touchStart(e)
+  },
+  touchMove (e) {
+    this.wecropper.touchMove(e)
+  },
+  touchEnd (e) {
+    this.wecropper.touchEnd(e)
+  },
+  cutPic(e) {
+    var i=e.target.dataset.i||e.currentTarget.dataset.i,
+    t=this;
+    t.wecropper.pushOrign(t.data['picPath'+i]);
+    t.setData({
+      cutImg:i,
+      cutting:true
+    });
+  },
+  exit() {
+    this.setData({cutting:false})
+  },
+  sure(e) {
+    var t=this,{cutImg}=t.data;
+    this.wecropper.getCropperImage((src) => {
+      if (src) {
+        t.setData({
+          ['picPath'+cutImg]:src,
+          cutting:false
+        });
+      }
+    })
+  },
+  initImg () {
+    const { cropperOpt } = this.data
+
+    new weCropper(cropperOpt)
+      .on('ready', (ctx) => {
+        console.log(`wecropper is ready for work!`)
+      })
+      .on('beforeImageLoad', (ctx) => {
+
+        wx.showToast({
+          title: '上传中',
+          icon: 'loading',
+          duration: 20000
+        })
+      })
+      .on('imageLoad', (ctx) => {
+
+        wx.hideToast()
+      })
+      .on('beforeDraw', (ctx, instance) => {
+
+      })
+      .updateCanvas()
   },
   onLoad: function (options) {
   	var t=this,
         id=options.id||1;
     wx.showLoading({title:'正在加载中！'});
   	app.check();
+    t.initImg();
     t.setData({
       //notices: app.globalData.help.note_upload.split('\n')
     });
@@ -106,7 +183,7 @@ Page({
     var data=e.detail.value,t=this,sp=[];
     data=Object.assign({},t.data.info,data,{carType:t.data.all[t.data.ai].id,type:t.data.types[t.data.ti]});
     var f=checkSpace(data);
-    if(f||t.data.picPath1==""||t.data.picPath2=="") {
+    if(f||t.data.picPath1=="") {
       toast('必填参数有空，请重新填写');
       return false;
     }
@@ -131,12 +208,13 @@ Page({
     if(t.data.imgs[0]!=t.data.picPath1) {
       if(t.data.imgs[1]!=t.data.picPath2) {
         req({
-          filePath: t.data.picPath1,
+          filePath: t.data.picPath1
         },uploadFile).then(res=>{
           if(res) {
             sp[0]=app.uploadUrl+res;
             return req({
                     filePath: t.data.picPath2,
+                    copy:t.data.imgs[1]
                   },uploadFile);
           } else {
             toast("图片上传失败，请重试！");
@@ -161,7 +239,6 @@ Page({
         }).then(res=>{
           if(res.data.code==4280) {
             setTimeout(function() {
-              console.log('tiaozhuan')
               wx.switchTab({url:'../is_host/is_host'});
             },2000);
             toast('修改成功！');
@@ -175,7 +252,7 @@ Page({
       } else {
         /*图2没有变，图1变了*/
         req({
-          filePath: t.data.picPath1,
+          filePath: t.data.picPath1
         },uploadFile).then(res=>{
           if(res) {
             sp[0]=app.uploadUrl+res;
@@ -210,6 +287,7 @@ Page({
       if(t.data.imgs[1]!=t.data.picPath2) {
         req({
           filePath: t.data.picPath2,
+          copy:t.data.imgs[1]
         },uploadFile).then(res=>{
           if(res) {
             sp[0]=app.uploadUrl+res;

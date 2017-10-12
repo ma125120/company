@@ -33,7 +33,7 @@ swiper {
 	border-bottom-right-radius: 10rpx;
 }
 swiper {
-	height:220px;
+	height:340px;
 }
 .title {
 	line-height: 80rpx;

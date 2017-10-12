@@ -65,6 +65,6 @@ Page({
       toast('请先进行选择！');
       return false;
     }
-    toast('置顶成功');
+    toast('别急，该功能正在实现。');
   }
 })

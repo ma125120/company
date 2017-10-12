@@ -50,7 +50,7 @@ form {
 	height:87px;
 	text-align:center;
 	line-height: 87px;
-	margin-right: 28px;
+	
 	font-size:87px;
 	vertical-align: middle;
 }
@@ -90,4 +90,39 @@ view.none-pic {
 .comment {
 	padding-top:10px;
 	color:#000;
+}.cut-view {
+	display: inline-block;
+	width:48%;
+	vertical-align: middle;
+	text-align: center;
+}
+.cut-img {
+	padding:10px 0;
+	font-size:16px;
+}
+
+.cropper-wrapper {
+	position: fixed;
+	top:0;left:0;bottom:0;right:0;
+	width:100vw;
+	height:100vh;
+	z-index:1000;
+}
+.sure,
+.exit {
+	position: fixed;
+	bottom:0;
+	line-height:120px;
+	background: red;
+	text-align: center;
+	color:#fff;
+	font-size:20px;
+}
+.exit {
+	left:0;
+	width:50%;
+}
+.sure {
+	right:0;
+	width:50%;
 }

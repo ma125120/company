@@ -52,7 +52,12 @@ function getCalendar() {
 			first,
 			last;
 	obj.startDate=`${year}${formatTime(month)}${formatTime(date)}`;
-	obj.others=[(parseInt(month))%12,(parseInt(month)+1)%12,(parseInt(month)+2)%12].map((_month,index)=>{	2
+	obj.others=[(parseInt(month)),(parseInt(month)+1),(parseInt(month)+2)].map((_month,index)=>{
+		let _year=year;
+		if(_month>12) {
+			_year=_year+1;
+			_month=_month%12;
+		}
 		let i,j,arr=[],dates=[],_dates=monthToDate(_month);
 		if(index==0) {
 			first=startWeek(date,day);
@@ -65,7 +70,7 @@ function getCalendar() {
 		for(j=1;j<=_dates;j++) {
 			let o={
 				num:formatTime(j),
-				dates:`${year}${formatTime(_month)}${formatTime(j)}`,
+				dates:`${_year}${formatTime(_month)}${formatTime(j)}`,
 				disable:false,
 			};
 			if(index==0) {
@@ -75,11 +80,11 @@ function getCalendar() {
 		}
 		last=_dates;
 		return {
-			title:`${year}年${_month}月`,
+			title:`${_year}年${_month}月`,
 			dates:arr.concat(dates)
 		}
 	});
-	obj.endDate=`${year}${formatTime(parseInt(month)+2)}${formatTime(obj.others[2].dates[obj.others[2].dates.length-1].num)}`;
+	obj.endDate=`${obj.others[2].dates[obj.others[2].dates.length-1].dates}`;
 	return obj;
 }
 export {

@@ -23,13 +23,14 @@
 				<view class="title title1">填写信息:</view>
 				<input type="text" class='input' placeholder="姓名" name="Person_liable" placeholder-class='place' />
 				<input type="text" class='input' placeholder="公司或店面名称" name="name" placeholder-class='place' />
-				<input type="text" class='input' placeholder="公司地址" name="Business_addr" placeholder-class='place' />
+				<view class='input' placeholder="公司地址" name="Business_addr" placeholder-class='place' bindtap="chooseAddr">{{address}}<text class="g">(点击可修改)</text></view>
+				<!-- <view type="text" class='input' placeholder="公司地址" name="Business_addr" placeholder-class='place' bindtap="openMap">{{addr}}</view> -->
 				<view class="tel">
-					<input type="text" class='input' placeholder="手机号" name="Person_phone" placeholder-class='place'  bindinput='setTel' />
+					<input type="number" class='input' placeholder="手机号" name="Person_phone" placeholder-class='place'  bindinput='setTel' />
 					<button class="get" bindtap='getCode' disabled="{{send}}">{{num}}</button>
 				</view>
 				
-				<input type="text" class='input' placeholder="手机验证码" name="mscCode" placeholder-class='place' />
+				<input type="number" class='input' placeholder="手机验证码" name="mscCode" placeholder-class='place' />
 				<input type="text" class='input' placeholder="备注（选填）" name="note" placeholder-class='place' />
 
 				<view class="titl black">通知:</view>

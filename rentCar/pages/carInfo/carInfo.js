@@ -15,7 +15,8 @@ Page({
     ai:0,
     weekdays:['周日','周一','周二','周三','周四','周五','周六'],
     dates:[],
-    RUID:''
+    RUID:'',
+    tel:true
   },
   onLoad: function (options) {
   	var t=this,
@@ -30,7 +31,7 @@ Page({
             Cookie:app.globalData.head
         }
   		}).then(res=>{
-  			var car=res.data.data,ai;
+  			var car=res.data.data,ai;//res.data.code=4285
         var imgs=car.imgs&&car.imgs.split(",");
         car.img1=imgs&&imgs[0];
         car.img2=imgs&&imgs[1];
@@ -96,7 +97,11 @@ Page({
       __date=__date+1;
       if(__date>_dates) {
         __date=1;
-        __month=(__month+1)%12;
+        __month=(__month+1);
+        if(__month>12) {
+          __month=__month%12;
+          year=year+1;
+        }
       }
       return obj;
     });

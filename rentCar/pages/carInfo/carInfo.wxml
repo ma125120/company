@@ -1,7 +1,7 @@
 <scroll-view scroll-y="true" scroll-top='0' class='main'>
 	<view class="main">
 		<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
-			<swiper-item wx:for="{{slides}}" wx:key="{{index}}">
+			<swiper-item wx:for="{{slides}}" wx:key="{{index}}" wx:if="{{item}}">
 				<image src="{{item}}" class='s_img'  mode='widthFix'></image>
 			</swiper-item>
 		</swiper>
@@ -104,7 +104,7 @@
 		</view>
 	</view>
 </scroll-view>
-<view class="page-wrap">
+<view class="page-wrap" wx:if="{{tel}}">
 	<view class="tel-view fixed">
 					<view class="l">
 						<image src="../../images/carInfo/call.svg" class='v_m'></image>

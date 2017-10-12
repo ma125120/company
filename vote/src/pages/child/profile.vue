@@ -94,9 +94,8 @@ export default {
   methods:{
     singleTicket(i) {
       var t=this,
-          openid,//=t.$userinfo.openid,
+          openid=t.$userinfo&&t.$userinfo.openid,
           user_number=t.info.number;
-          openid='123'
       if(!openid) {
         t.$weui.alert('用户信息获取失败,请重新进入！');
         return false;
@@ -151,7 +150,7 @@ export default {
       var t=this,
           {start,pageSize,given}=t;
       start=start+pageSize;
-      this.$http.get(`${t.$URL}/pre/getpreListById.htm?user_number=${t.info.num_id}&start=${t.start}&pageSize=${t.pageSize}`)
+      this.$http.get(`${t.$URL}/pre/getpreListByIdPage.htm?user_number=${t.info.num_id}&start=${t.start}&pageSize=${t.pageSize}`)
       .then(res=>{
         let state=res.data.state;
         if(state==0) {
@@ -164,7 +163,7 @@ export default {
       var t=this;
       t.$http.get(`${t.$URL}/main/getuser.htm?activity_id=${t.$AC_ID}&user_id=${t._id}`)
       .then(res=>{
-        let state=res.data.state;console.log(res.data.data)
+        let state=res.data.state;
         if(state==0) {
           let info=res.data.data.userInfo[0],
           gift_num=res.data.data.userInfo[1].userPreTotal;

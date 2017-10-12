@@ -6,7 +6,6 @@ require('./crypto/hmac.js');
 require('./crypto/sha1.js');
 const Crypto = require('./crypto/crypto.js');
 
-
 const uploadFile = function (params) {
     var params=params;
     params.dir=params.dir||"";
@@ -18,8 +17,10 @@ const uploadFile = function (params) {
     })
     return;
   }
-  const aliyunFileKey = params.dir + params.filePath.replace('wxfile://', '');
-
+  var aliyunFileKey = params.dir + params.filePath.replace('wxfile://', '');
+  if(params.copy) {
+    aliyunFileKey=params.copy.split("aliyuncs.com")[1];
+  }
   const aliyunServerURL = env.uploadImageUrl;
   const accessid = env.OSSAccessKeyId;
   const policyBase64 = getPolicyBase64();
@@ -81,5 +82,6 @@ const getSignature = function (policyBase64) {
 
   return signature;
 }
+
 
 export default uploadFile;

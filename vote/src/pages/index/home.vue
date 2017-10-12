@@ -43,6 +43,7 @@
    					<div class="bot-right" @click.stop="singleTicket(index)">投票</div>
    				</div>
    			</router-link>
+        <div class='more' @click='loadMore'>查看更多</div>
    		</div>
       <div class="items" v-else>
         <router-link :to="'/profile?id='+userInfo._id+'&num_id='+userInfo.number" tag='div' class='item'>
@@ -53,8 +54,9 @@
             <div class="bot-right" @click.stop="singleTicket('s')">投票</div>
           </div>
         </router-link>
+
       </div>
-      <div class='more' @click='loadMore'>查看更多</div>
+      
    		<div class="footer">
    			<div class="title"><img :src="'./static/imgs/svg/act.svg'"  alt="">活动介绍</div>
    			<div class="body">
@@ -139,7 +141,7 @@ export default {
   	loadMore() {
   		var t=this,{start,pageSize,userList}=t;
       start=start+pageSize;
-      t.$http.get(`${t.$URL}/main/getUserList.htm?activity_id=${t.$AC_ID}&start=${start}&pageSize=${pageSize}`)
+      t.$http.get(`${t.$URL}/main/getUserListPage.htm?activity_id=${t.$AC_ID}&start=${start}&pageSize=${pageSize}`)
       .then(res=>{
         let {state}=res.data;
         if(state==0) {
@@ -181,7 +183,7 @@ export default {
     },
     initUser() {
       var t=this;
-      t.$http.get(`${t.$URL}/main/getUserList.htm?activity_id=${t.$AC_ID}&start=${t.start}&pageSize=${t.pageSize}`)
+      t.$http.get(`${t.$URL}/main/getUserListPage.htm?activity_id=${t.$AC_ID}&start=0&pageSize=${t.start+t.pageSize}`)
       .then(res=>{  
         let {state}=res.data;
         if(state==0) {
@@ -194,7 +196,7 @@ export default {
     },
     singleTicket(i) {
       var t=this,
-          openid=t.$userinfo.openid,
+          openid=t.$userinfo&&t.$userinfo.openid,
           user_number;
           if(i=='s') {
             user_number=t.userInfo.number;
@@ -296,7 +298,7 @@ export default {
           t.times=time;
         },1000);
         /*获取选手信息*/
-        return t.$http.get(`${t.$URL}/main/getUserList.htm?activity_id=${t.$AC_ID}&start=${t.start}&pageSize=${t.pageSize}`);
+        return t.$http.get(`${t.$URL}/main/getUserListPage.htm?activity_id=${t.$AC_ID}&start=0&pageSize=${t.pageSize}`);
       }
     }).then(res=>{  
       let {state}=res.data;

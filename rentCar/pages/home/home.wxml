@@ -35,3 +35,5 @@
 		<view class="bor_gray"></view>
 	</block>
 </scroll-view>
+
+<import src="../pic.wxml"/>
