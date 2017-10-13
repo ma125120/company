@@ -1,0 +1,20 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="scene parent">
+		<view class="titles">界面展示</view>
+		<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
+			<swiper-item wx:for="{{case1.imgs}}" wx:key="{{index}}">
+				<image src="{{item}}" class='s_img'></image>
+			</swiper-item>
+		</swiper>
+	</view>
+	<view class="titles s">小程序二维码</view>
+	<view class="erwei">
+		<image src="{{case1.img2}}" class='img2' mode='widthFix'></image>
+		<view class="footer">
+			<image src='../../images/case/cur.png' class="vm cur"></image>
+			<text class="vm">点击二维码长按扫描进入小程序</text>
+		</view>
+	</view>
+	
+</scroll-view>
+

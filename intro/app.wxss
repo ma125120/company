@@ -8,6 +8,36 @@ page {
 	height:8px;
 	background: #D7D7D7;
 }
+.titles {
+	font-size:15px;
+	margin-bottom: 16px;
+}
+.titles:before {
+	content:'';
+	display: inline-block;
+	vertical-align: middle;
+	width:45px;
+	height:1px;
+	background: #797979;
+	margin-right:10px;
+}
+.titles:after {
+	content:'';
+	display: inline-block;
+	vertical-align: middle;
+	width:45px;
+	height:1px;
+	background: #797979;
+	margin-left:10px;
+}
+.flex {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.vm {
+	vertical-align: middle;
+}
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
 ::-webkit-scrollbar  
 {  

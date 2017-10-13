@@ -19,6 +19,24 @@
 					"name": "my",
 					"pathName": "pages/my/my",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "公司介绍",
+					"pathName": "pages/com/com",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "合作机构",
+					"pathName": "pages/hezuo/hezuo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "案例详情",
+					"pathName": "pages/case/case",
+					"query": "id=1"
 				}
 			]
 		},

@@ -1,0 +1,8 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
+		<swiper-item wx:for="{{headpics}}" wx:key="{{index}}">
+			<image src="{{item.pic}}"></image>
+		</swiper-item>
+	</swiper>
+</scroll-view>
+

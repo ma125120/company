@@ -1,0 +1,33 @@
+var cases=[{
+			id:1,
+  		title:'租车神州连合',
+  		src:'../../images/cases/rent.png',
+  		imgs:['../../images/case/move1.png','../../images/case/move2.png'],
+  		img2:'../../images/case/move22.png'
+  	},{
+  		id:2,
+  		title:'动感创客商城',
+  		src:'../../images/cases/move.png',
+  		imgs:['../../images/case/move1.png','../../images/case/move2.png'],
+  		img2:'../../images/case/move22.png'
+  	},{
+  		id:3,
+  		title:'栗氏家族义卖平台',
+  		src:'../../images/cases/family.png',
+  		imgs:['../../images/case/move1.png','../../images/case/move2.png'],
+  		img2:'../../images/case/move22.png'
+  	},{
+  		id:4,
+  		title:'中北创业孵化园',
+  		src:'../../images/cases/coffee.png',
+  		imgs:['../../images/case/move1.png','../../images/case/move2.png'],
+  		img2:'../../images/case/move22.png'
+  	},{
+  		id:5,
+  		title:'不断更新中...',
+  		src:'../../images/cases/more.png',
+  		imgs:['../../images/case/move1.png','../../images/case/move2.png'],
+  		img2:'../../images/case/move22.png'
+  	}
+];
+export default cases

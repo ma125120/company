@@ -25,10 +25,12 @@ image {
 	height:54px;
 }
 /*功能区*/
+.parent {
+	padding:14px 0;
+}
 .func {
 	background: #F2F2F2;
 	color:#797979;
-	padding:14px 0;
 }
 .titles {
 	font-size:15px;
@@ -65,12 +67,97 @@ image {
 }
 
 .wrap .item {
-	border:thin solid #BCBCBC;
 	border-radius: 10px;
 	width:27%;
 	margin-top:5px;
 	padding:10px 5px ;
 }
+.func .itme {
+	border:thin solid #BCBCBC;
+}
 .img-title1 {
 	padding:5px 0;
+}
+/*应用场景*/
+
+.scene .wrap {
+	width:96%;
+	margin:0 auto;
+}
+.scene .item {
+	width:45%;
+	position: relative;
+	color:#fff;
+	border:none;
+	margin-bottom:16px;
+}
+.bg {
+	width:164px;
+	height:100px;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index:-2;
+}
+.bg-view {
+	background: #000;
+	opacity: 0.1;
+	z-index:-1;
+}
+.content {
+	width:72%;
+	height:80%;
+	margin:0 auto;
+}
+.title {
+	font-size: 14px;
+	padding:5px;
+}
+/*开发流程*/
+.dev {
+	background: #666;
+	color:#fff;
+}
+.dev .titles:before {
+	background: #fff;
+}
+.dev .titles:after {
+	background: #fff;
+}
+.dev .wrap {
+	width:98%;
+	margin:0 auto;
+}
+.dev .item {
+	margin:0;
+	padding:0;
+	width:30%;
+}
+.dev image {
+	width:120px;
+	height:120px;
+}
+
+.dev .title {
+	margin-top:-20px;
+}
+
+.foot {
+	position: relative;
+	color:#fff;
+	margin:20px 0;
+}
+.foot image {
+	width:337px;
+	height:85px;
+	position: absolute;
+	top:0;
+	left:50%;
+	z-index:-2;
+	transform: translate(-50%);
+}
+.foot .con {
+	width:100px;
+	margin:0 auto;
+	padding:20px 0;
 }

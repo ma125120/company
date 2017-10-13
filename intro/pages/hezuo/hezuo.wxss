@@ -1,0 +1,17 @@
+scroll-view {
+	min-height: 100%;
+}
+.content {
+	margin:20px auto;
+}
+.content image {
+	width:60%;
+}
+image {
+	width:100%;
+}
+.hr {
+	border-bottom: thin solid #797979;
+	width:160px;
+	margin:10px auto;
+}

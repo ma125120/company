@@ -1,0 +1,9 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="content">
+		<view  wx:for="{{imgs}}" wx:key="{{index}}">
+			<image src="{{'../../images/hezuo/'+item}}"  mode='widthFix'></image>
+			<view class="hr"></view>
+		</view>
+	</view>
+</scroll-view>
+

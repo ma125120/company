@@ -5,13 +5,13 @@
 		</swiper-item>
 	</swiper>
 	<view class="page-head">
-		<view class="item" wx:for="{{top}}" wx:key="{{index}}">
+		<navigator url="{{item.url}}" class="item" wx:for="{{top}}" wx:key="{{index}}">
 			<image class='top-img' src="{{item.src}}"></image>
 			<view class="head-title">{{item.title}}</view>
-		</view>
+		</navigator>
 	</view>
 
-	<view class="func">
+	<view class="func parent">
 		<view class="titles">功能特性</view>
 		<view class="wrap flex">
 			<view class="item"  wx:for="{{funcs}}" wx:key="{{index}}">
@@ -24,8 +24,37 @@
 		</view>
 	</view>
 
-	<view class="scene">
+	<view class="scene parent">
 		<view class="titles">应用场景</view>
+		<view class="wrap flex">
+			<view class="item"  wx:for="{{scenes}}" wx:key="{{index}}">
+				<image src='{{item.src}}' class='bg'></image>
+				<view class="bg bg-view"></view>
+				<view class="content">
+					<view class="title">{{item.title}}</view>
+					<view class="text">{{item.text}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="dev parent">
+		<view class="titles">开发流程</view>
+		<view class="wrap flex">
+			<view class="item"  wx:for="{{devs}}" wx:key="{{index}}">
+				<image src='{{item.src}}'></image>
+				<view class="title">{{item.title}}</view>
+				<view class="text">{{item.text}}</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="foot">
+		<image src='../../images/home/bot.png'></image>
+		<view class="con">
+			<view>诚邀合作伙伴</view>
+			<view>共同跑马圈地</view>
+		</view>
 	</view>
 </scroll-view>
 

@@ -1,0 +1,31 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="header flex">
+		<view class="l">
+			<view class="title">{{info.title}}</view>
+			<view class="text">{{info.text}}</view>
+		</view>
+		<view class="r">
+			<image src="{{info.logo}}"></image>
+		</view>
+	</view>
+	<view class="other">
+		<view class="address line"  bindtap="goLocation"><image src="../../images/com/pos.png" class='svg'></image><text class="vm">{{info.address}}</text>
+			<view class="gt">></view>
+		</view>
+		<view class="time line"><image src="../../images/com/time.png" class='svg'></image><text class="vm">{{info.time}}</text>
+
+		</view>
+		<view class="tel line" bindtap="call"><image src="../../images/com/tel.png" class='svg'></image><text class="vm">{{info.tel}}</text>
+			<view class="gt">></view>
+		</view>
+		<view class="condition line">
+			<view class="con-title"><image src="../../images/com/CON1.png" class='svg'></image><text class="vm">公司环境</text></view>
+			<view class="con-imgs flex">
+				<view class="itme" wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:key="{{index}}">
+					<image src='../../images/com/c1.png' class='con-img'></image>
+				</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+

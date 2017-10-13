@@ -1,11 +1,11 @@
 var app=getApp();
-var {u,baseURL:URL,cases}=app;
+var {req,toast,md5,baseURL:URL,Goto,checkForm}=app;
 Page({
   data: {
-  	cases:[]
+  	
   },
   onLoad: function (options) {
   	var t=this;
-  	t.setData({cases});
+  	app.check();
   }
 })

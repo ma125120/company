@@ -1,11 +1,12 @@
 //app.js
 import u from './utils/util.js'
-
+import cases from './utils/cases.js'
 App({
   onLaunch: function () {
-
+    
   },
   u,
+  cases,
   baseURL:'https://szlhzc.bchltech.cn/SZZC/',
   getUserInfo: function(cb) {
     var that = this

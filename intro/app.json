@@ -2,7 +2,11 @@
   "pages":[
     "pages/index/index",
     "pages/cases/cases",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/case/case",
+    "pages/com/com",
+    "pages/hezuo/hezuo",
+    "pages/map/map"
   ],
   "window":{
     "backgroundTextStyle":"light",
