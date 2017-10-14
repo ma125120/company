@@ -1,0 +1,14 @@
+<view class="wrap">
+	<view wx:for="{{cases}}" wx:key="{{index}}">
+		<view wx:if="{{index==cases.length-1}}"  class="item">
+			<image src="{{item.src}}"></image>
+			<view class="title">{{item.title}}</view>
+		</view>
+		<navigator url="../case/case?id={{item.id}}" wx:else  class="item">
+			<image src="{{item.src}}"></image>
+			<view class="title">{{item.title}}</view>
+		</navigator>
+	</view>
+</view>
+
+

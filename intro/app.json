@@ -6,7 +6,8 @@
     "pages/case/case",
     "pages/com/com",
     "pages/hezuo/hezuo",
-    "pages/map/map"
+    "pages/map/map",
+    "pages/cases1/cases1"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -14,7 +15,7 @@
     "navigationBarTitleText": "百川汇力",
     "navigationBarTextStyle":"white"
   },
-  "debug":true,
+  "debug":false,
   "tabBar":{
     "color":"#121212",
     "selectedColor":"#1296DB",

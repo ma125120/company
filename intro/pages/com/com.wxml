@@ -22,7 +22,7 @@
 			<view class="con-title"><image src="../../images/com/CON1.png" class='svg'></image><text class="vm">公司环境</text></view>
 			<view class="con-imgs flex">
 				<view class="itme" wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:key="{{index}}">
-					<image src='../../images/com/c1.png' class='con-img'></image>
+					<image src='../../images/com/c{{item}}.png' class='con-img'></image>
 				</view>
 			</view>
 		</view>

@@ -1,0 +1,19 @@
+.wrap {
+	text-align: left;
+	width:90%;
+	margin: 0 auto;
+}
+.item {
+	border-bottom: thin solid #999;
+	padding:14px 0;
+	display: flex;
+	align-items: center;
+}
+.item image {
+	width:45px;
+	height: 45px;
+}
+.title {
+	flex:1;
+	padding-left:24px;
+}

@@ -12,10 +12,12 @@ Page({
   		src:'../../images/home/team.png'
   	},{
   		title:'合作机构',
-  		src:'../../images/home/company.png'
+  		src:'../../images/home/company.png',
+  		url:'../hezuo/hezuo'
   	},{
   		title:'案例分享',
-  		src:'../../images/home/share.png'
+  		src:'../../images/home/share.png',
+  		url:'../cases1/cases1'
   	}],
   	funcs:[{
   		title:'电商系统',

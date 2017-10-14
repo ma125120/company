@@ -2,7 +2,7 @@ var cases=[{
 			id:1,
   		title:'租车神州连合',
   		src:'../../images/cases/rent.png',
-  		imgs:['../../images/case/move1.png','../../images/case/move2.png'],
+  		imgs:['../../images/case/rent1.png','../../images/case/rent2.png'],
   		img2:'../../images/case/move22.png'
   	},{
   		id:2,
