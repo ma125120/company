@@ -34,7 +34,7 @@ $(function() {
 	/*输入框的值改变时判断是否为空*/
 	$("input,textarea,select").on("change",function(e) {
 		var t=$(this),val=$(this).val(),
-			name=t.attr("name");console.log(val)
+			name=t.attr("name");
 		if(val.trim()=="") {
 			form[name]=true;
 		} else {
@@ -42,9 +42,18 @@ $(function() {
 		}
 	});
 	/*为空时不进行表单录入*/
-	$(document).on("click","#submit",function() {
-		if(!isUpload) {
-			var flag=true;console.log(form)
+	$(document).on("click","#submit",function(e) {
+		e.preventDefault();
+		var age=$("#us_age1").val();
+		if(!age.match(/^(\d){1,3}$/g)) {
+			alert("年龄必须为数字");
+			return false;
+		} else if(parseInt(age)<=0||parseInt(age)>110) {
+			alert("年龄大小填写不合法！");
+			return false;
+		}
+ 		if(!isUpload) {
+			var flag=true;
 			for(var i in form) {
 				if(form.hasOwnProperty(i)) {	
 					if(form[i])	{
@@ -55,7 +64,26 @@ $(function() {
 			}
 			if(!flag) {
 				alert("请检查您的输入!");
+				return false;
 			}
+			var data=new FormData($("#form")[0]);
+			$.ajax({
+				url:'https://dev.bchltech.cn/activity/apply.htm',
+				data:data,  
+        type: 'POST',   
+        dataType: 'JSON',  
+        cache: false,  
+        processData: false,  
+        contentType: false,
+        success:function(json) {
+        	if(json.state==0) {
+        		alert("报名成功");
+        	} else {
+        		alert("报名失败");
+        	}
+        }
+			});
+			return false;
 			return flag;
 		} else {
 			alert("正在提交，请稍后！");

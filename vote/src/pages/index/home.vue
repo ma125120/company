@@ -138,6 +138,14 @@ export default {
     }
   },
   methods:{
+    isWeiXin(){ 
+      var ua = window.navigator.userAgent.toLowerCase(); 
+      if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+      return true; 
+      }else{ 
+      return false; 
+      } 
+    },
   	loadMore() {
   		var t=this,{start,pageSize,userList}=t;
       start=start+pageSize;
@@ -277,6 +285,9 @@ export default {
   },
   created(){
     var t=this;
+    if(!t.isWeiXin()) {
+      t.$router.replace('/noWeixin');
+    }
     var loading = t.$weui.loading('loading', {
         className: 'custom-classname'
     });

@@ -17,6 +17,14 @@ export default {
           Vue.prototype.$AC_ID=AC_ID;
       t.getUserinfo(obj.code);
     },
+    isWeiXin(){ 
+      var ua = window.navigator.userAgent.toLowerCase(); 
+      if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+      return true; 
+      }else{ 
+      return false; 
+      } 
+    },
     getSearch(str) {
       var arr=str.split("&"),obj={};
       arr.map(function(v,i) {
@@ -67,8 +75,12 @@ export default {
   },
   created() {
     var t=this,{$u:{getCookie,setCookie}}=t;
+    if(!t.isWeiXin()) {
+      t.$router.replace('/noWeixin');
+    }
     this.getAcId();
-    this.getLogin();
+    this.getLogin();console.log(t.isWeiXin())
+    
     // if(!getCookie("access")) {
     //   this.$http.get(`${this.$URL}/wechat/setIden.htm`)
     //   .then(res=>{

@@ -2,32 +2,30 @@ var cases=[{
 			id:1,
   		title:'租车神州连合',
   		src:'../../images/cases/rent.png',
-  		imgs:['../../images/case/rent1.png','../../images/case/rent2.png'],
-  		img2:'../../images/case/move22.png'
+  		imgs:['../../images/case/rent1.png','../../images/case/rent2.png','../../images/case/rent3.jpg'],
+  		img2:'../../images/case/rent22.jpg'
   	},{
   		id:2,
   		title:'动感创客商城',
   		src:'../../images/cases/move.png',
   		imgs:['../../images/case/move1.png','../../images/case/move2.png'],
-  		img2:'../../images/case/move22.png'
+  		img2:'../../images/case/move22.jpg'
   	},{
   		id:3,
   		title:'栗氏家族义卖平台',
   		src:'../../images/cases/family.png',
-  		imgs:['../../images/case/move1.png','../../images/case/move2.png'],
-  		img2:'../../images/case/move22.png'
+  		imgs:['../../images/case/family1.png','../../images/case/family2.png'],
+  		img2:'../../images/case/family22.jpg'
   	},{
   		id:4,
   		title:'中北创业孵化园',
   		src:'../../images/cases/coffee.png',
-  		imgs:['../../images/case/move1.png','../../images/case/move2.png'],
-  		img2:'../../images/case/move22.png'
+  		imgs:['../../images/case/coffee1.jpg','../../images/case/coffee2.jpg','../../images/case/coffee3.jpg'],
+  		img2:'../../images/case/coffee22.jpg'
   	},{
   		id:5,
   		title:'不断更新中...',
-  		src:'../../images/cases/more.png',
-  		imgs:['../../images/case/move1.png','../../images/case/move2.png'],
-  		img2:'../../images/case/move22.png'
+  		src:'../../images/cases/more.png'
   	}
 ];
 export default cases

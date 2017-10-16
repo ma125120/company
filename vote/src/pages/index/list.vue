@@ -41,6 +41,14 @@ export default {
     }
   },
   methods:{
+    isWeiXin(){ 
+      var ua = window.navigator.userAgent.toLowerCase(); 
+      if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+      return true; 
+      }else{ 
+      return false; 
+      } 
+    },
   	loadMore() {
   		this.infos=this.infos.concat(arr.slice(0,3));
   	},
@@ -67,6 +75,9 @@ export default {
   },
   created() {
   	var t=this;
+    if(!t.isWeiXin()) {
+      t.$router.replace('/noWeixin');
+    }
     var loading = t.$weui.loading('loading', {
         className: 'custom-classname'
     });

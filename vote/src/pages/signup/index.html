@@ -10,7 +10,8 @@
 <body>
 	<div class='title'>活动报名</div>
 	<div class="block_gray"></div>
-	<form action="https://dev.bchltech.cn/activity/apply.htm" enctype="multipart/form-data" method='post'>
+	<form  id="form">
+	<!-- <form action="https://dev.bchltech.cn/activity/apply.htm" enctype="multipart/form-data" method='post' id="form"> -->
 		<div>
 			<label for="file1">用户图片1:</label>
 			<div class="f1 file">
@@ -51,7 +52,7 @@
 		<div class="bor_gray"></div>
 		<div>
 			<label for="us_age1">年龄:</label>
-			<input type="text" id="us_age1" name='us_age' class='f1 input  cir'  />
+			<input type="number" id="us_age1" name='us_age' class='f1 input  cir'  />
 		</div>
 		<div class="bor_gray"></div>
 		<div>
@@ -60,7 +61,7 @@
 		</div>
 		<div class="bor_gray"></div>
 		<div>
-			<label for="ac_id">活动id:</label>
+			<label for="ac_id">参加活动:</label>
 			<select name="activity_id" id="ac_id" class='f1' >
 					
 			</select>
@@ -71,7 +72,7 @@
 		</div>
 		
 	</form>
-	<script src='zepto.js'></script>
+	<script src='jq.js'></script>
 	<script src='main.js'></script>
 </body>
 </html>

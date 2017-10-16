@@ -121,12 +121,23 @@ export default {
         console.log(err);
         t.dis=false;
       });
-    }
+    },
+    isWeiXin(){ 
+      var ua = window.navigator.userAgent.toLowerCase(); 
+      if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+      return true; 
+      }else{ 
+      return false; 
+      } 
+    },
   },
   created() {
     var t=this,
         _id=t.$route.query.id,
         num_id=t.$route.query.num_id;
+    if(!t.isWeiXin()) {
+      t.$router.replace('/noWeixin');
+    }
     var loading = t.$weui.loading('loading', {
         className: 'custom-classname'
     });

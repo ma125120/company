@@ -159,6 +159,14 @@ export default {
         }
       });
     },
+    isWeiXin(){ 
+      var ua = window.navigator.userAgent.toLowerCase(); 
+      if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+      return true; 
+      }else{ 
+      return false; 
+      } 
+    },
     initInfo(loading) {
       var t=this;
       t.$http.get(`${t.$URL}/main/getuser.htm?activity_id=${t.$AC_ID}&user_id=${t._id}`)
@@ -180,6 +188,9 @@ export default {
     var t=this,
         _id=t.$route.query.id,
         num_id=t.$route.query.num_id;
+    if(!t.isWeiXin()) {
+      t.$router.replace('/noWeixin');
+    }
     var loading = t.$weui.loading('loading', {
         className: 'custom-classname'
     });

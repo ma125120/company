@@ -8,6 +8,7 @@ import List from '../pages/index/list.vue'
 import Profile from '../pages/child/profile.vue'
 import Gift from '../pages/child/gift.vue'
 import Ac from '../pages/child/ac.vue'
+import NoWeixin from '../pages/child/noWeixin.vue'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ var router=new Router({
       path: '/ac',
         component: Ac,
         name:'ac'
+    },
+    {
+      path: '/noWeixin',
+        component: NoWeixin,
+        name:'NoWeixin'
     },
   ]
 });

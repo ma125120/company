@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=1.0">
+	<title>报名页面</title>
+	<style>
+		* {
+			margin:0;
+			padding:0;
+			outline:0;
+		}
+		body {
+			width:100vw;
+			background: url(bg.jpg);
+			background-size: cover;
+			overflow:hidden;
+		}
+		.img {
+			width:100vw;
+		}
+		.form {
+			position: absolute;
+			z-index:1000;
+			top:58%;
+			left:50%;
+			transform: translate(-50%);
+		}
+		.input {
+			display: block;
+			width:100%;
+			min-width: 200px;
+			height:28px;
+			line-height: 28px;
+			padding-left:10px;
+			margin-bottom: 20px;
+			border-radius: 28px;
+			background: #fff;
+			border:none;
+			font-size:14px;
+		}
+		.btn {
+			display: block;
+			width:72%;
+			margin:0 auto;
+			border:none;
+			height:36px;
+			border-radius:10px;
+			line-height: 36px;
+			-webkit-appearance: none;
+			background: #544639;
+			color:#fff;
+			font-size:20px;
+		}
+
+		.wra {
+			position: absolute;
+			top:50%;
+			left:50%;
+			transform: translate(-50%,-50%);
+		}
+		select.input {
+			border:thin solid #888;
+		}
+		.sure {
+			width:100%;
+			background:#12e545;
+		}
+		.hide {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<img class="img" src='bg.jpg' />
+	<div>
+		<form class='form'>
+			<input type="text" id="name" class='input' name="name" placeholder="请输入您的姓名" />
+			<input type="number" id="phone" class='input'  name="phone" placeholder="请输入您的联系方式" />
+			<input type="text" class='input'  name="addr" id="area" placeholder="请输入您要代理的区域" disabled="disabled" />
+			<button id="submit" class='btn'>提交报名</button>
+		</form>
+		<div id="city" class='hide form'>
+			<div class="wrap" data-toggle="distpicker">
+				  <select id="city1" class='input select' data-province="---- 选择省 ----"></select>
+				  <select id="city2" class='input select'  data-city="---- 选择市 ----"></select>
+				  <select id="city3" class='input select'  data-district="---- 选择区 ----"></select>
+				  <button class="btn sure">确定</button>
+			</div> 
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="jq.js"></script>
+	<script type="text/javascript" src="distpicker.data.js"></script>
+	<script type="text/javascript" src="distpicker.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var code=110101,upload=false;
+			$(document).on("touchstart","#area",function() {
+				$("#city").fadeIn(100).siblings().hide();
+			});
+			$(".sure").click(function() {
+				if(!code) {
+					alert("请选择区域后再退出！");
+				} else {
+					var c1=$("#city1").val(),
+						c2=$("#city2").val(),
+						c3=$("#city3").val();
+					$("#area").val(c1+c2+c3);
+					$("#city").fadeOut(100).siblings().show();
+				}
+			});
+			$(".select").change(function() {
+				code=$(this).find(":selected").data("code");
+			});
+			$("#submit").click(function() {
+				var name=$("#name").val(),
+					phone=$("#phone").val(),
+					addr=$("#area").val();
+				if(!name||!phone||!addr||!code) {
+					alert("输入不能为空");
+					return false;
+				} else if(phone.length!=11) {
+					alert("手机号格式不正确");
+					return false;
+				}
+				if(!upload) {
+					upload=true;
+					$.get('https://szlhzc.bchltech.cn/SZZC/aapplyFranchisee.htm?name='+name+"&phone="+phone+"&addr="+addr+"&addr_code="+code,function(json) {
+						var data=JSON.parse(json);
+						if(data.code==4280) {
+							alert("信息提交成功");
+						} else {
+							alert("信息提交失败");
+						}
+						upload=false;
+					});
+				} else {
+					alert("正在提交请求，请稍后");
+				}
+				
+				return false;
+			});
+		});
+	</script>
+</body>
